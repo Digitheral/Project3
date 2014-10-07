@@ -8,4 +8,6 @@ public class WashoosEvent extends Event {
     public String getExtraInfo() {
         return null;
     }
+    public static boolean hasAutoWinStick;
+    public static int numWashoos;
 }

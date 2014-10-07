@@ -8,4 +8,5 @@ public class LadderBallEvent extends Event {
     public String getExtraInfo() {
         return null;
     }
+    public static int numRungs;
 }

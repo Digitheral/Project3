@@ -8,4 +8,5 @@ public class CanJamEvent extends Event{
     public String getExtraInfo() {
         return null;
     }
+    public static int frisbeeSize;
 }

@@ -8,4 +8,5 @@ public class CornHoleEvent extends Event {
     public String getExtraInfo() {
         return null;
     }
+    public static int numBeanBags;
 }
