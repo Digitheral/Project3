@@ -10,5 +10,4 @@ public abstract class Event
     public static boolean isPlayToExact;
     public static int playDistance;
     public abstract String getExtraInfo();
-    }
 }
