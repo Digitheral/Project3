@@ -6,11 +6,10 @@ package com.company;
 public class EventManager {
     public EventManager()
     {
-        // Fill olympian array with information
+        
     }
     public Event[] getEvents()
     {
-        // Getter function
-        return new Event[0];
+        return this.getEvents();
     }
 }

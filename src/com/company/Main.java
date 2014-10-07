@@ -36,10 +36,12 @@ public class Main
         // Comparing for error-checking this way we don't crash
         if(inString.equals("e") || inString.equals("events"))
         {
+            EventManager myEventManager;
             events(); // method call to event listing
         }
         else if(inString.equals("o") || inString.equals("olympians"))
         {
+            OlympianManager myOlympianManager;
             olympians(); // method call to olympians
         }
         else if(inString.equals("h") || inString.equals("help"))
