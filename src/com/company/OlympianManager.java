@@ -10,7 +10,8 @@ public class OlympianManager {
     }
     public Olympian[] getOlympians()
     {
-        // Getter function
-        return new Olympian[0];
+
+            return new Olympian[i];
+ 
     }
 }

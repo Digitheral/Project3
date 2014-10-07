@@ -9,5 +9,5 @@ public class WashoosEvent extends Event {
         return null;
     }
     public static boolean hasAutoWinStick;
-    public static int numWashoos;
+    public static int numWashoos = 5;
 }

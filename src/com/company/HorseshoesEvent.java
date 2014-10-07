@@ -8,5 +8,5 @@ public class HorseshoesEvent extends Event{
     public String getExtraInfo() {
         return null;
     }
-    public static int numHorseShoes;
+    public static int numHorseShoes = 2;
 }

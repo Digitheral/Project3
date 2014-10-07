@@ -6,7 +6,7 @@ package com.company;
 public class EventManager {
     public EventManager()
     {
-        
+        Event.name = "Bob";
     }
     public Event[] getEvents()
     {
