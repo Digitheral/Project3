@@ -5,7 +5,8 @@ package com.company;
  */
 public class LadderBallEvent extends Event {
     @Override
-    public String getExtraInfo() {
+    public String getExtraInfo()
+    {
         return null;
     }
     public static int numRungs = 3;

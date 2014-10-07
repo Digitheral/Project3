@@ -10,10 +10,11 @@ import java.util.Scanner;
 
 public class Main
 {
-    static String[] EventName; // This array holds each game name for descriptions later.
-    static String[][] OlympianData; // This array holds the name, sex and age of each olympian as well as how to address them.
+    public static String[] EventName; // This array holds each game name for descriptions later.
+    public static String[][] OlympianData; // This array holds the name, sex and age of each olympian as well as how to address them.
 
-    public enum Sex{
+    public enum Sex
+    {
         MALE,
         FEMALE;
     }
@@ -36,7 +37,8 @@ public class Main
         // Comparing for error-checking this way we don't crash
         if(inString.equals("e") || inString.equals("events"))
         {
-            EventManager myEventManager;
+            EventManager myEventManager = new EventManager();
+            myEventManager.getEvents();
             events(); // method call to event listing
         }
         else if(inString.equals("o") || inString.equals("olympians"))

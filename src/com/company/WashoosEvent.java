@@ -5,9 +5,10 @@ package com.company;
  */
 public class WashoosEvent extends Event {
     @Override
-    public String getExtraInfo() {
+    public String getExtraInfo()
+    {
         return null;
     }
-    public static boolean hasAutoWinStick;
+    public static boolean hasAutoWinStick = false;
     public static int numWashoos = 5;
 }

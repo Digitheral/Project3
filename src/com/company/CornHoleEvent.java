@@ -5,7 +5,8 @@ package com.company;
  */
 public class CornHoleEvent extends Event {
     @Override
-    public String getExtraInfo() {
+    public String getExtraInfo()
+    {
         return null;
     }
     public static int numBeanBags = 4;

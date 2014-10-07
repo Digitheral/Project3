@@ -10,8 +10,10 @@ public class OlympianManager {
     }
     public Olympian[] getOlympians()
     {
-
-            return new Olympian[i];
- 
+        return new Olympian[0];
+    }
+    public void showInfo()
+    {
+        // loop  thru olympians here
     }
 }
