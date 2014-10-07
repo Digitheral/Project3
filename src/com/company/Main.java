@@ -13,6 +13,11 @@ public class Main
     static String[] EventName; // This array holds each game name for descriptions later.
     static String[][] OlympianData; // This array holds the name, sex and age of each olympian as well as how to address them.
 
+    public enum Sex{
+        MALE,
+        FEMALE;
+    }
+
     // Main Method for Splash Screen
     public static void main(String[] args)
     {
