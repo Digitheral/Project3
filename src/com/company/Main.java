@@ -25,14 +25,17 @@ public class Main
             {
                 System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
                 EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
+                myEventManager.getEvents();
                 System.out.println("This is the listing and description of each event: ");
                 myEventManager.getInfo(); // Getting all the information displayed
             }
             else if (args[i].equals("o") || args[i].equals("olympians"))
             {
+                System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
                 OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
+                myOlympianManager.getOlympians();
                 System.out.println("This is the listing for each olympian: ");
-                // Add methods
+               // myOlympianManager.getInfo();
             }
             else if (args[i].equals("h") || args[i].equals("help")) {
                 help(); // method call to help
