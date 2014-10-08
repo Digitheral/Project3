@@ -5,7 +5,7 @@ package com.company;
  */
 public class CanJamEvent extends Event
 {
-    public static int frisbeeSize;
+    private int frisbeeSize = 20;
     @Override
     public String getExtraInfo()
     {

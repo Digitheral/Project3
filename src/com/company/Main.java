@@ -12,7 +12,7 @@ public class Main
 {
     public static String[] EventName; // This array holds each game name for descriptions later.
     public static String[][] OlympianData; // This array holds the name, sex and age of each olympian as well as how to address them.
-
+    public static String ExtraInfo;
     public enum Sex
     {
         MALE,
@@ -39,8 +39,7 @@ public class Main
         {
             EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
             myEventManager.getEvents();
-            String ExtraInfo = myEventManager.getInfo();
-            System.out.println("Extra Info for Washoos " + ExtraInfo);
+            myEventManager.getInfo();
 
          //   events(); // method call to event listing
         }

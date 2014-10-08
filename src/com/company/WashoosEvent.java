@@ -7,6 +7,10 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
  */
 public class WashoosEvent extends Event
 {
+    private boolean hasAutoWinStick = false;
+    private int numWashoos = 5;
+    protected String returnString1;
+    protected String returnString2;
     @Override
     public String getExtraInfo()
     {
@@ -14,8 +18,4 @@ public class WashoosEvent extends Event
         returnString2 = Integer.toString(numWashoos);
         return returnString1.concat(" " + returnString2);
     }
-    protected static boolean hasAutoWinStick = false;
-    protected static int numWashoos = 5;
-    protected String returnString1;
-    protected String returnString2;
 }

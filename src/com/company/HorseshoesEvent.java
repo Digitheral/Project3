@@ -3,11 +3,12 @@ package com.company;
 /**
  * Created by Art on 10/7/2014.
  */
-public class HorseshoesEvent extends Event{
+public class HorseshoesEvent extends Event
+{
+    private static int numHorseShoes = 2;
     @Override
     public String getExtraInfo()
     {
-        return null;
+        return Integer.toString(numHorseShoes);
     }
-    public static int numHorseShoes = 2;
 }

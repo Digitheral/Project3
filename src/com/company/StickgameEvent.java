@@ -3,12 +3,12 @@ package com.company;
 /**
  * Created by Art on 10/7/2014.
  */
-public class CornHoleEvent extends Event
+public class StickgameEvent extends Event
 {
-    private int numBeanBags = 4;
+    private int frisbeeSize = 20;
     @Override
     public String getExtraInfo()
     {
-        return Integer.toString(numBeanBags);
+        return Integer.toString(frisbeeSize);
     }
 }
