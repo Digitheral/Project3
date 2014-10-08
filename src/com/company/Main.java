@@ -40,6 +40,7 @@ public class Main
             EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
             myEventManager.getEvents();
             myEventManager.getInfo();
+            System.out.println(myEventManager);
 
          //   events(); // method call to event listing
         }

@@ -5,10 +5,10 @@ package com.company;
  */
 public class EventManager
 {
-    public static String[] name;
-    public static int[] playTo;
-    public static boolean[] isPlayToExact;
-    public static int[] playDistance;
+    private String[] name;
+    private int[] playTo;
+    private boolean[] isPlayToExact;
+    private int[] playDistance;
     public EventManager()
     {
         this.name = Event.name;
@@ -16,21 +16,21 @@ public class EventManager
         this.isPlayToExact= Event.isPlayToExact;
         this.playDistance = Event.playDistance;
     }
-    public String[] getEvents()
+    public Event[] getEvents()
     {
-        return this.name;
+        return new Event[0];
     }
 
     protected void getInfo()
     {
         for (int i = 0; i < this.name.length; i++)
         {
-            System.out.println("This event is played to " + this.playTo[i] + " points.");
-            System.out.println("This event is played at a distance of " + this.playDistance[i] + " feet.");
+
+            System.out.println("This event, " + this.name[i] + " is played to " + this.playTo[i] + " points.");
+            System.out.println("This event, " + this.name[i] + " is played at a distance of " + this.playDistance[i] + " feet.");
+            System.out.println("This event, " + this.name[i] + " is currently holding a boolean value of " + this.isPlayToExact[i] + ".");
 
         }
-
-
     }
 }
 
