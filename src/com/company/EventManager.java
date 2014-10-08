@@ -4,7 +4,7 @@ package com.company;
 public class EventManager
 {
     // Information for Events
-    protected String[] name;
+    private String[] name;
     private int[] playTo;
     private boolean[] isPlayToExact;
     private int[] playDistance;
