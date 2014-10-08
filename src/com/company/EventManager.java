@@ -6,7 +6,7 @@ package com.company;
 public class EventManager
 {
     // Information for Events
-    private String[] name;
+    protected String[] name;
     private int[] playTo;
     private boolean[] isPlayToExact;
     private int[] playDistance;
@@ -26,7 +26,7 @@ public class EventManager
     // Gets Event Object
     public Event[] getEvents()
     {
-        return new Event[this.name.length];
+        return new Event[6];
     }
     // Gets info from the Abstract Event Class and Subclasses beneath that (ExtraInformation)
     protected void getInfo()
