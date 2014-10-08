@@ -39,8 +39,8 @@ public class Main
         {
             EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
             myEventManager.getEvents();
-            myEventManager.getInfo();
-            System.out.println(myEventManager);
+            String ExtraInfo = myEventManager.getInfo();
+            System.out.println("Extra Info for Washoos " + ExtraInfo);
 
          //   events(); // method call to event listing
         }
