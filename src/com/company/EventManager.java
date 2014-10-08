@@ -4,10 +4,10 @@ package com.company;
 public class EventManager
 {
     // Information for Events
-    private String[] name;
-    private int[] playTo;
-    private boolean[] isPlayToExact;
-    private int[] playDistance;
+    protected String[] name;
+    protected int[] playTo;
+    protected boolean[] isPlayToExact;
+    protected int[] playDistance;
     private String ExtraInfo;
     private String GameSpecific; // This variable is so we can make the output much nicer
 
@@ -22,9 +22,48 @@ public class EventManager
     }
 
     // Gets Event Object
-    public Event[] getEvents()
+    public Event[] getEvents(int arg)
     {
-        return new Event[6];
+        switch(arg)
+        {
+            case 0:
+                WashoosEvent.name[arg] = "Washoos";
+                WashoosEvent.playTo[arg] = 21;
+                WashoosEvent.isPlayToExact[arg] = false;
+                WashoosEvent.playDistance[arg] = 15;
+                break;
+            case 1:
+                Event.name[arg] = "Canjam";
+                Event.playTo[arg] = 21;
+                Event.isPlayToExact[arg] = false;
+                Event.playDistance[arg] = 50;
+                break;
+            case 2:
+                Event.name[arg] = "Horseshoes";
+                Event.playTo[arg] = 11;
+                Event.isPlayToExact[arg] = false;
+                Event.playDistance[arg] = 40;
+                break;
+            case 3:
+                Event.name[arg] = "Cornhole";
+                Event.playTo[arg] = 21;
+                Event.isPlayToExact[arg] = false;
+                Event.playDistance[arg] = 27;
+                break;
+            case 4:
+                Event.name[arg] = "Ladderball";
+                Event.playTo[arg] = 21;
+                Event.isPlayToExact[arg] = false;
+                Event.playDistance[arg] = 15;
+                break;
+            case 5:
+                Event.name[arg] = "Stickgame";
+                Event.playTo[arg] = 11;
+                Event.isPlayToExact[arg] = false;
+                Event.playDistance[arg] = 15;
+                break;
+        }
+        return new WashoosEvent[arg];
     }
     // Gets info from the Abstract Event Class and Subclasses beneath that (ExtraInformation)
     protected void getInfo()
@@ -32,10 +71,10 @@ public class EventManager
         // Iterating through every event to get the information that was stored in the constructor
         for (int i = 0; i < name.length; i++)
         {
-            System.out.println("The event " + name[i] + " is played to " + playTo[i] + " points.");
-            System.out.println(name[i] + " is played at a distance of " + playDistance[i] + " feet.");
-            System.out.println(name[i] + " is currently holding a boolean value of " + isPlayToExact[i] + ".");
             // This takes us to get extra info about the games so we can print it below
+            System.out.println("The event " + name[i] + " is played to " + playTo[i] + " points.");
+            System.out.println(Event.name[i] + " is played at a distance of " + playDistance[i] + " feet.");
+            System.out.println(Event.name[i] + " is currently holding a boolean value of " + isPlayToExact[i] + ".");
             getExtraInfo(i);
             switch(i)
             {

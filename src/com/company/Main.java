@@ -22,17 +22,21 @@ public class Main
             {
                 System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
                 EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
-                Event[] myEvent = myEventManager.getEvents();
                 System.out.println("This is the listing and description of each event: ");
-                myEventManager.getInfo(); // Getting all the information displayed
+             //  myEventManager.getInfo(); // Displays the abstract class Events also displays ExtraInfo
+                                          // Due to abstraction, the class "Events" cannot be initalized
+                                          // We will print out the games within the EventManager class, retrieved from the subclasses.
+
+
             }
             else if (args[i].equals("o") || args[i].equals("olympians"))
             {
                 System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
                 OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
-                Olympian myOlympian = myOlympianManager.getOlympians();
+                Olympian myOlympian = myOlympianManager.getOlympians(); // Instantiating an Olympian class so
+                                                                        // OlympianManager can retrieve
                 System.out.println("This is the listing for each olympian: ");
-                olympianDisplay(myOlympian);
+                olympianDisplay(myOlympian); // Call to display Olympians
 
             }
             else if (args[i].equals("h") || args[i].equals("help"))
