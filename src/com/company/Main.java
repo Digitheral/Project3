@@ -37,9 +37,11 @@ public class Main
         // Comparing for error-checking this way we don't crash
         if(inString.equals("e") || inString.equals("events"))
         {
-            EventManager myEventManager = new EventManager();
+            EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
             myEventManager.getEvents();
-            events(); // method call to event listing
+            myEventManager.getInfo();
+
+         //   events(); // method call to event listing
         }
         else if(inString.equals("o") || inString.equals("olympians"))
         {
