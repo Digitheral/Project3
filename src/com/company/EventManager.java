@@ -24,46 +24,7 @@ public class EventManager
     // Gets Event Object
     public Event[] getEvents(int arg)
     {
-        switch(arg)
-        {
-            case 0:
-                WashoosEvent.name[arg] = "Washoos";
-                WashoosEvent.playTo[arg] = 21;
-                WashoosEvent.isPlayToExact[arg] = false;
-                WashoosEvent.playDistance[arg] = 15;
-                break;
-            case 1:
-                Event.name[arg] = "Canjam";
-                Event.playTo[arg] = 21;
-                Event.isPlayToExact[arg] = false;
-                Event.playDistance[arg] = 50;
-                break;
-            case 2:
-                Event.name[arg] = "Horseshoes";
-                Event.playTo[arg] = 11;
-                Event.isPlayToExact[arg] = false;
-                Event.playDistance[arg] = 40;
-                break;
-            case 3:
-                Event.name[arg] = "Cornhole";
-                Event.playTo[arg] = 21;
-                Event.isPlayToExact[arg] = false;
-                Event.playDistance[arg] = 27;
-                break;
-            case 4:
-                Event.name[arg] = "Ladderball";
-                Event.playTo[arg] = 21;
-                Event.isPlayToExact[arg] = false;
-                Event.playDistance[arg] = 15;
-                break;
-            case 5:
-                Event.name[arg] = "Stickgame";
-                Event.playTo[arg] = 11;
-                Event.isPlayToExact[arg] = false;
-                Event.playDistance[arg] = 15;
-                break;
-        }
-        return new WashoosEvent[arg];
+        return new Event[0];
     }
     // Gets info from the Abstract Event Class and Subclasses beneath that (ExtraInformation)
     protected void getInfo()

@@ -23,11 +23,9 @@ public class Main
                 System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
                 EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
                 System.out.println("This is the listing and description of each event: ");
-             //  myEventManager.getInfo(); // Displays the abstract class Events also displays ExtraInfo
+                myEventManager.getInfo(); // Displays the abstract class Events also displays ExtraInfo
                                           // Due to abstraction, the class "Events" cannot be initalized
                                           // We will print out the games within the EventManager class, retrieved from the subclasses.
-
-
             }
             else if (args[i].equals("o") || args[i].equals("olympians"))
             {
