@@ -21,7 +21,7 @@ public class EventManager
         this.ExtraInfo = "No Extra Info Currently Available";
     }
 
-    // Gets Event Object
+    // Gets Event Object - See Main Class Comments
     public Event[] getEvents(int arg)
     {
         return new Event[0];

@@ -1,6 +1,8 @@
 // Program: Project II - Lawn Olympic Games
 // Arthur Pearson
 // CMPT 220 - Fall 2014 Software Development 1
+// Commments: I'm not quite sure I did the Abstract implementation how you wanted it, I displayed it referencing Event from EventManager as opposed to from Main.
+//            Haven't worked with abstract classes much.
 
 package com.company;
 
