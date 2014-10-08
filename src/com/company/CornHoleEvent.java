@@ -1,11 +1,10 @@
 package com.company;
 
-/**
- * Created by Art on 10/7/2014.
- */
+// Class for Cornhole
 public class CornHoleEvent extends Event
 {
     private int numBeanBags = 4;
+    // Override returns above variable
     @Override
     public String getExtraInfo()
     {

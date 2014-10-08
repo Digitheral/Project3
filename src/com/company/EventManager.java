@@ -1,8 +1,6 @@
 package com.company;
 
-/**
- * Created by Art on 10/7/2014.
- */
+// Base class that is called from main for Events
 public class EventManager
 {
     // Information for Events

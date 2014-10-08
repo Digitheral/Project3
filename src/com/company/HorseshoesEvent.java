@@ -1,11 +1,10 @@
 package com.company;
 
-/**
- * Created by Art on 10/7/2014.
- */
+// Class for Horseshoes
 public class HorseshoesEvent extends Event
 {
     private static int numHorseShoes = 2;
+    // Override returns above variable
     @Override
     public String getExtraInfo()
     {

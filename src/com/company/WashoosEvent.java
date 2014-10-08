@@ -1,16 +1,14 @@
 package com.company;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
-/**
- * Created by Art on 10/7/2014.
- */
+// Class for Washoos
 public class WashoosEvent extends Event
 {
     private boolean hasAutoWinStick = false;
     private int numWashoos = 5;
     protected String returnString1;
     protected String returnString2;
+    /* Override returns above variables, this override is slightly different than the others. We concatenate both of the
+    variables provided to return them. First we convert them to strings, then concatenate, then return. */
     @Override
     public String getExtraInfo()
     {

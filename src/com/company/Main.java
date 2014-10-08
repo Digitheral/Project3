@@ -17,8 +17,9 @@ public class Main
     {
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
-
-        // Comparing for error-checking this way we don't crash
+        /* This for iterates through each of the arguments provided by the console so we can determine what class to callu
+        upon. We can go to the EventManager or OlympianManager class and access each of those classes subclasses
+        Help menu will print without a class, but a method call. */
         for(int i=0; i < args.length; i++)
         {
             if (args[i].equals("e") || args[i].equals("events"))
@@ -46,6 +47,7 @@ public class Main
             }
         }
     }
+    // Help menu
     public static void help()
     {
         System.out.println("\nHELP MENU.\n");

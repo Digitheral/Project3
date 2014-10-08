@@ -1,8 +1,6 @@
 package com.company;
 
-/**
- * Created by Art on 10/7/2014.
- */
+// Abstract Event Class
 public abstract class Event extends EventManager
 {
     protected static String[] name = {"Washoos", "Canjam", "Horseshoes", "Cornhole", "Ladderball", "Stickgame"};
