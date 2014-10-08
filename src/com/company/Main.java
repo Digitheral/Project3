@@ -11,11 +11,6 @@ public class Main
 {
     public static String ExtraInfo;
     public static String BasicInfo;
-    public enum Sex
-    {
-        MALE,
-        FEMALE;
-    }
 
     // Main Method for Splash Screen
     public static void main(String[] args)
