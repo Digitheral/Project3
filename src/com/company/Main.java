@@ -35,7 +35,7 @@ public class Main
                 OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
                 myOlympianManager.getOlympians();
                 System.out.println("This is the listing for each olympian: ");
-               // myOlympianManager.getInfo();
+                myOlympianManager.getInfo();
             }
             else if (args[i].equals("h") || args[i].equals("help")) {
                 help(); // method call to help
