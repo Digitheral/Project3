@@ -95,7 +95,16 @@ public class Main
         System.out.println("Input 'o' or 'olympians' to view the status of all olympians.");
         System.out.println("You figured out how to get here by typing 'h' or 'help'.");
     }
-    // This method display Olympian Data
+    // This method displays Event Data
+    public static void eventDisplay(Event myEvent, int arg)
+    {
+        System.out.println("The event " + myEvent.name[arg] + " is played to " + myEvent.playTo[arg] + " points.");
+        System.out.println(myEvent.name[arg] + " is played at a distance of " + myEvent.playDistance[arg] + " feet.");
+        System.out.println(myEvent.name[arg] + " is currently holding a boolean value of " + myEvent.isPlayToExact[arg] + ".");
+        String ExtraInfo = myEvent.getExtraInfo();
+        System.out.println("Extra Info for " + myEvent.name[arg] + ": " + ExtraInfo);
+    }
+    // This method displays Olympian Data
     public static void olympianDisplay(Olympian myOlympian)
     {
         {
@@ -174,15 +183,5 @@ public class Main
             }
 
         }
-    }
-    public static void eventDisplay(Event myEvent, int arg)
-    {
-        System.out.println("The event " + myEvent.name[arg] + " is played to " + myEvent.playTo[arg] + " points.");
-        System.out.println(myEvent.name[arg] + " is played at a distance of " + myEvent.playDistance[arg] + " feet.");
-        System.out.println(myEvent.name[arg] + " is currently holding a boolean value of " + myEvent.isPlayToExact[arg] + ".");
-        String ExtraInfo = myEvent.getExtraInfo();
-        System.out.println("Extra Info for " + myEvent.name[arg] + ": " + ExtraInfo);
-
-
     }
 }
