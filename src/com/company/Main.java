@@ -25,7 +25,43 @@ public class Main
                 System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
                 EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
                 System.out.println("This is the listing and description of each event: ");
-                myEventManager.getInfo(); // Displays the abstract class Events also displays ExtraInfo
+
+                //  Instatiating Each Game for use with the abstract class
+                for(int j =0; j < 6; j++)
+                {
+                    switch(j)
+                    {
+                        case 0:
+                            WashoosEvent myWashoos = new WashoosEvent();
+                            myWashoos.getEvents(j);
+                            eventDisplay(myWashoos, j);
+                            break;
+                        case 1:
+                            CanJamEvent myCanJam = new CanJamEvent();
+                            eventDisplay(myCanJam, j);
+                            break;
+                        case 2:
+                            HorseshoesEvent myHorseshoes = new HorseshoesEvent();
+                            eventDisplay(myHorseshoes, j);
+                            break;
+                        case 3:
+                            CornHoleEvent myCornhole = new CornHoleEvent();
+                            eventDisplay(myCornhole, j);
+                            break;
+                        case 4:
+                            LadderBallEvent myLadderBall = new LadderBallEvent();
+                            eventDisplay(myLadderBall, j);
+                            break;
+                        case 5:
+                            StickgameEvent myStickgame = new StickgameEvent();
+                            eventDisplay(myStickgame, j);
+                            break;
+                        default:
+                            break;
+
+                    }
+                }
+               // myEventManager.getInfo(); // Displays the abstract class Events also displays ExtraInfo
                                           // Due to abstraction, the class "Events" cannot be initalized
                                           // We will print out the games within the EventManager class, retrieved from the subclasses.
             }
@@ -45,6 +81,7 @@ public class Main
             }
             else
             {
+                // Error catching
                 System.out.println("Error: Not a command. Please refer to help menu by typing 'h' or 'help'.");
             }
         }
@@ -137,5 +174,15 @@ public class Main
             }
 
         }
+    }
+    public static void eventDisplay(Event myEvent, int arg)
+    {
+        System.out.println("The event " + myEvent.name[arg] + " is played to " + myEvent.playTo[arg] + " points.");
+        System.out.println(myEvent.name[arg] + " is played at a distance of " + myEvent.playDistance[arg] + " feet.");
+        System.out.println(myEvent.name[arg] + " is currently holding a boolean value of " + myEvent.isPlayToExact[arg] + ".");
+        String ExtraInfo = myEvent.getExtraInfo();
+        System.out.println("Extra Info for " + myEvent.name[arg] + ": " + ExtraInfo);
+
+
     }
 }
