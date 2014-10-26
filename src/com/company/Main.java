@@ -3,7 +3,6 @@
 // CMPT 220 - Fall 2014 Software Development
 package com.company;
 
-import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
 
 import java.io.*;
 
@@ -15,18 +14,6 @@ public class Main
         try
         {
             InputStream input = new FileInputStream("Olympians.lgoo");
-            byte[] buffer = new byte[1024];
-            int numBytesRead;
-
-            while ((numBytesRead= input.read(buffer)) > 0)
-            {
-                System.out.println("Length: " + numBytesRead);
-                for (int i = 0; i < numBytesRead; i++)
-                {
-                    System.out.println("Byte: " + buffer[i]);
-                }
-            }
-
         }
         catch(FileNotFoundException fnfe)
         {
@@ -70,7 +57,7 @@ public class Main
             System.out.println("\nTEAM LISTINGS\n");
             TeamManager myTeamManager = new TeamManager();
             System.out.println("This is the listing for each team: ");
-            //myTeamManager.setTeams();
+            myTeamManager.setTeams();
             Teams[] myTeams = myTeamManager.getTeams();
             displayTeams(myTeams);
 
