@@ -18,4 +18,12 @@ public class TeamManager
 
 
     }
+    public void setTeams()
+    {
+        // use random to set teams
+    }
+    public Teams[] getTeams()
+    {
+        return myTeams;
+    }
 }

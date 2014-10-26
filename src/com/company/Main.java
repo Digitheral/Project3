@@ -43,8 +43,8 @@ public class Main
             TeamManager myTeamManager = new TeamManager();
             System.out.println("This is the listing for each team: ");
             //myTeamManager.setTeams();
-          //  Teams[] myTeams = myTeamManager.getTeams();
-            displayTeams();
+            Teams[] myTeams = myTeamManager.getTeams();
+            displayTeams(myTeams);
 
         }
         else if (args[0].equals("h") || args[0].equals("help"))
@@ -145,7 +145,7 @@ public class Main
             System.out.println("Age: " + myOlympians[i].age);
         }
     }
-    public static void displayTeams()
+    public static void displayTeams(Teams[] myTeams)
     {
         System.out.println("display teams here");
     }
