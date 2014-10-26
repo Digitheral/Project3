@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.*;
+
 // Base class that is called from Main for Olympians
 public class OlympianManager
 {
@@ -14,10 +16,26 @@ public class OlympianManager
         }
 
     }
-    public void setOlympians()
+    public void setOlympians() throws Exception
     {
+        try
+        {
+            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+            String check;
+            check = input.readLine();
+            System.out.println(check);
+        }
+        catch(FileNotFoundException fnfe)
+        {
+            System.out.println("File not found.");
+        }
+        catch(IOException ioe)
+        {
+            System.out.println("Problem reading from file");
+        }
         for (int i = 0; i < 16; i++)
         {
+
             switch (i)
             {
                 case 0:

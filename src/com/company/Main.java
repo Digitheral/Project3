@@ -11,7 +11,7 @@ import java.io.*;
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args)
+    public static void main(String[] args) throws Exception
     {
         try
         {

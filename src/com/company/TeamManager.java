@@ -5,7 +5,7 @@ import java.util.Random; // to assign teams
 /**
  * Created by Art on 10/26/2014.
  */
-public class TeamManager
+public class TeamManager extends Teams
 {
     private static Teams[] myTeams;
     // Constructor
