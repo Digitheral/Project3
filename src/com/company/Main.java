@@ -36,58 +36,63 @@ public class Main
         }
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
-        if(args.length == 0)
+        // Now accepts input from console
+        try
         {
-            System.out.println("There are no arguments, please input one.");
-        }
-        else if (args[0].equals("e") || args[0].equals("events"))
-        {
-            System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
-            EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
-            System.out.println("This is the listing and description of each event: ");
-            myEventManager.setEvents();
-            Event[] myEvents = myEventManager.getEvents();
-            displayEvents(myEvents);
-        }
-        else if (args[0].equals("o") || args[0].equals("olympians"))
-        {
-            System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
-            OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
-            System.out.println("This is the listing for each olympian: ");
-            myOlympianManager.setOlympians();
-            Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
-            displayOlympians(myOlympians);
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader consoleInput = new BufferedReader(isr);
+            String inputLine = " ";
+            while (consoleInput != null)
+            {
+                System.out.println("Please input an argument");
+                inputLine = consoleInput.readLine();
+                if(inputLine.equals("e") || inputLine.equals("events"))
+                {
+                    System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
+                    EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
+                    System.out.println("This is the listing and description of each event: ");
+                    myEventManager.setEvents();
+                    Event[] myEvents = myEventManager.getEvents();
+                    displayEvents(myEvents);
+                }
+                else if(inputLine.equals("o")|| inputLine.equals("olympians"))
+                {
+                    System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
+                    OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
+                    System.out.println("This is the listing for each olympian: ");
+                    myOlympianManager.setOlympians();
+                    Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
+                    displayOlympians(myOlympians);
+                }
+                else if(inputLine.equals("t")|| inputLine.equals("teams"))
+                {
+                    System.out.println("\nTEAM LISTINGS\n");
+                    TeamManager myTeamManager = new TeamManager();
+                    System.out.println("This is the listing for each team: ");
+                    myTeamManager.setTeams();
+                    Teams[] myTeams = myTeamManager.getTeams();
+                    displayTeams(myTeams);
 
+                }
+                else if(inputLine.equals("h")|| inputLine.equals("help"))
+                {
+                    help(); // calls the help method
+                }
+                else if(inputLine.equals("q") || inputLine.equals("quit"))
+                {
+                    System.exit(0);
+                }
+                else
+                {
+                    System.out.println("Invalid argument, please try again.");
+                }
+            }
         }
-        else if (args[0].equals("h") || args[0].equals("help"))
+        catch(IOException ioe)
         {
-            help(); // method call to help
-        }
-        else if (args[0].equals("t") || args[0].equals("team"))
-        {
-            System.out.println("\nTEAM LISTINGS\n");
-            TeamManager myTeamManager = new TeamManager();
-            System.out.println("This is the listing for each team: ");
-            myTeamManager.setTeams();
-            Teams[] myTeams = myTeamManager.getTeams();
-            displayTeams(myTeams);
-
-        }
-        else if (args[0].equals("h") || args[0].equals("help"))
-        {
-            help(); // method call to help
-        }
-        else if(args[0].equals("q") || args[0].equals("quit"))
-        {
-            System.exit(0);
-        }
-        else
-        {
-            // Error catching
-            System.out.println("Error: Not a command. Please refer to help menu by typing 'h' or 'help'.");
+            System.out.println("Input error");
         }
     }
-
     // Help menu
     public static void help()
     {
