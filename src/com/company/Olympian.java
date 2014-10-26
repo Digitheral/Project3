@@ -7,10 +7,10 @@ public class Olympian extends OlympianManager
     public enum Sex
     {
         MALE,
-        FEMALE;
+        FEMALE
     }
     // Olympian information
-    protected static String[] name  = new String[15];
-    protected static Sex[] sex = new Sex[15];
-    protected static int[] age = new int[15];
+    protected static String name;
+    protected static Sex sex;
+    protected static int age;
 }

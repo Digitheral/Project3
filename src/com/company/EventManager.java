@@ -1,49 +1,85 @@
 package com.company;
 
 // Base class that is called from main for Events
-public class EventManager {
-    // Information for Events
-    protected String[] name;
-    protected int[] playTo;
-    protected boolean[] isPlayToExact;
-    protected int[] playDistance;
-    private String ExtraInfo;
-    private String GameSpecific; // This variable is so we can make the output much nicer
+public class EventManager
+{
+  // Information for Events
+  private static Event[] myEvent = new Event[6];
+  private static WashoosEvent myWashoos = new WashoosEvent();
+  private static CanJamEvent myCanJam = new CanJamEvent();
+  private static HorseshoesEvent myHorseshoes = new HorseshoesEvent();
+  private static CornHoleEvent myCornhole = new CornHoleEvent();
+  private static LadderBallEvent myLadderBall = new LadderBallEvent();
+  private static StickgameEvent myStickgame = new StickgameEvent();
 
     // Constructor for Class EventManager
-    public EventManager() {
-        this.name = Event.name;
-        this.playTo = Event.playTo;
-        this.isPlayToExact = Event.isPlayToExact;
-        this.playDistance = Event.playDistance;
-        this.ExtraInfo = "No Extra Info Currently Available";
+    public EventManager()
+    {
+        myEvent[0] = myWashoos;
+        myEvent[1] = myCanJam;
+        myEvent[2] = myHorseshoes;
+        myEvent[3] = myCornhole;
+        myEvent[4] = myLadderBall;
+        myEvent[5] = myStickgame;
     }
+    public void setEvents()
+    {
+        for(int i=0; i<myEvent.length; i++)
+        {
+            switch(i)
+            {
+                case 0:
+                    myEvent[i].name = "Washoos";
+                    myEvent[i].playTo = 21;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 13;
+                    myEvent[i].getExtraInfo();
+                    break;
+                case 1:
+                    myEvent[i].name = "Canjam";
+                    myEvent[i].playTo = 21;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 5;
+                    myEvent[i].getExtraInfo();
+                    break;
+                case 2:
+                    myEvent[i].name = "Horseshoes";
+                    myEvent[i].playTo = 12;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 15;
+                    myEvent[i].getExtraInfo();
+                    break;
+                case 3:
+                    myEvent[i].name = "Cornhole";
+                    myEvent[i].playTo = 21;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 13;
+                    myEvent[i].getExtraInfo();
+                    break;
+                case 4:
+                    myEvent[i].name = "Ladderball";
+                    myEvent[i].playTo = 21;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 13;
+                    myEvent[i].getExtraInfo();
+                    break;
+                case 5:
+                    myEvent[i].name = "Stickgame";
+                    myEvent[i].playTo = 12;
+                    myEvent[i].isPlayToExact = false;
+                    myEvent[i].playDistance = 14;
+                    myEvent[i].getExtraInfo();
+                    break;
+                default:
+                    break;
 
-    // Gets Event Object - See Main Class Comments
-    public Event getEvents(int arg) {
-        switch (arg) {
-            case 0:
-                WashoosEvent.name = name;
-                return new WashoosEvent();
-            case 1:
-                CanJamEvent.name = name;
-                return new CanJamEvent();
-            case 2:
-                HorseshoesEvent.name = name;
-                return new HorseshoesEvent();
-            case 3:
-                CornHoleEvent.name = name;
-                return new CornHoleEvent();
-            case 4:
-                LadderBallEvent.name = name;
-                return new LadderBallEvent();
-            case 5:
-                StickgameEvent.name = name;
-                return new StickgameEvent();
-            default:
-                break;
+            }
         }
-        return null;
+
+    }
+    public Event[] getEvents()
+    {
+        return myEvent;
     }
 
 }
