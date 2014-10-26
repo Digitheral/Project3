@@ -13,7 +13,15 @@ public class Main
     {
         try
         {
-            InputStream input = new FileInputStream("Olympians.lgoo");
+            InputStream input = new FileInputStream("C:\\Olympians.lgoo");
+            byte[] buffer = new byte[1024];
+            int numBytesRead;
+
+            while ((numBytesRead = input.read(buffer)) > 0) {
+                System.out.println("Length: " + numBytesRead);
+                for (int i = 0; i < numBytesRead; i++)
+                    System.out.println("Byte: " + buffer[i]);
+            }
         }
         catch(FileNotFoundException fnfe)
         {
