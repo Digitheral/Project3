@@ -5,13 +5,17 @@ import java.util.Random; // to assign teams
 /**
  * Created by Art on 10/26/2014.
  */
-public class TeamManager extends OlympianManager
+public class TeamManager
 {
-    private static int TeamCount; // number of teams
+    private static Teams[] myTeams;
     // Constructor
     public TeamManager()
     {
-        // this is the constructor
+    //    myTeams[0].olympian1 = Seomthing;
+    //    myTeams[0].olympian2 = Something else;
+        myTeams[0].wins = 5;
+        myTeams[0].losses = 2;
+
 
     }
 }
