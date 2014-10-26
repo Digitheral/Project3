@@ -16,8 +16,7 @@ public class Main
         try
         {
             BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
-            String check;
-            check = input.readLine();
+            String check = " ";
             if(check.equals("LGOO"))
             {
                 // this works needs more error checking
