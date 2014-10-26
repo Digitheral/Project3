@@ -37,6 +37,8 @@ public class Main
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
         // Now accepts input from console
+        // This is the block for console input, we get the input via a buffered reader and check it against the needed arguments
+        // when 'q' or 'quit' is input we end the cycle.
         try
         {
             InputStreamReader isr = new InputStreamReader(System.in);
@@ -44,7 +46,7 @@ public class Main
             String inputLine = " ";
             while (consoleInput != null)
             {
-                System.out.println("Please input an argument");
+                System.out.println("\nPlease input an argument: ");
                 inputLine = consoleInput.readLine();
                 if(inputLine.equals("e") || inputLine.equals("events"))
                 {
@@ -80,6 +82,7 @@ public class Main
                 }
                 else if(inputLine.equals("q") || inputLine.equals("quit"))
                 {
+                    System.out.println("Have a nice day.");
                     System.exit(0);
                 }
                 else
@@ -180,7 +183,6 @@ public class Main
     {
         System.out.println("display teams here");
     }
-
 }
 
 
