@@ -4,6 +4,8 @@
 package com.company;
 
 
+import com.sun.javaws.exceptions.InvalidArgumentException;
+
 import java.io.*;
 
 public class Main
@@ -13,14 +15,15 @@ public class Main
     {
         try
         {
-            InputStream input = new FileInputStream("C:\\Olympians.lgoo");
-            byte[] buffer = new byte[1024];
-            int numBytesRead;
+            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+            String check;
+            check = input.readLine();
+            if(check.equals("LGOO"))
+            {
+                // this works needs more error checking
+                // invalid file type/permission
+                input.close();
 
-            while ((numBytesRead = input.read(buffer)) > 0) {
-                System.out.println("Length: " + numBytesRead);
-                for (int i = 0; i < numBytesRead; i++)
-                    System.out.println("Byte: " + buffer[i]);
             }
         }
         catch(FileNotFoundException fnfe)
