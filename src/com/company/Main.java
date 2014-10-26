@@ -39,7 +39,13 @@ public class Main
         }
         else if (args[0].equals("t") || args[0].equals("team"))
         {
+            System.out.println("\nTEAM LISTINGS\n");
             TeamManager myTeamManager = new TeamManager();
+            System.out.println("This is the listing for each team: ");
+            //myTeamManager.setTeams();
+          //  Teams[] myTeams = myTeamManager.getTeams();
+            displayTeams();
+
         }
         else if (args[0].equals("h") || args[0].equals("help"))
         {
@@ -138,6 +144,10 @@ public class Main
             System.out.println("Sex: " + myOlympians[i].sex);
             System.out.println("Age: " + myOlympians[i].age);
         }
+    }
+    public static void displayTeams()
+    {
+        System.out.println("display teams here");
     }
 
 }
