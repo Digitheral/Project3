@@ -3,11 +3,39 @@
 // CMPT 220 - Fall 2014 Software Development
 package com.company;
 
+import com.sun.xml.internal.bind.v2.runtime.RuntimeUtil;
+
+import java.io.*;
+
 public class Main
 {
     // Main Method for Splash Screen
     public static void main(String[] args)
     {
+        try
+        {
+            InputStream input = new FileInputStream("Olympians.lgoo");
+            byte[] buffer = new byte[1024];
+            int numBytesRead;
+
+            while ((numBytesRead= input.read(buffer)) > 0)
+            {
+                System.out.println("Length: " + numBytesRead);
+                for (int i = 0; i < numBytesRead; i++)
+                {
+                    System.out.println("Byte: " + buffer[i]);
+                }
+            }
+
+        }
+        catch(FileNotFoundException fnfe)
+        {
+            System.out.println("File not found.");
+        }
+        catch(IOException ioe)
+        {
+            System.out.println("Problem reading from file");
+        }
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
         if(args.length == 0)
