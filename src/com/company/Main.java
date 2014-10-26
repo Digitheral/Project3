@@ -12,7 +12,7 @@ public class Main
         System.out.println("Smith Family Lawn Olympic Games");
         if(args.length == 0)
         {
-            System.out.println("There are no arugments, please input one.");
+            System.out.println("There are no arguments, please input one.");
         }
         else if (args[0].equals("e") || args[0].equals("events"))
         {
@@ -41,7 +41,11 @@ public class Main
         {
             TeamManager myTeamManager = new TeamManager();
         }
-        else if (args[0].equals("q") || args[0].equals("quit"))
+        else if (args[0].equals("h") || args[0].equals("help"))
+        {
+            help(); // method call to help
+        }
+        else if(args[0].equals("q") || args[0].equals("quit"))
         {
             System.exit(0);
         }
