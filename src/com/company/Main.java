@@ -4,36 +4,31 @@
 package com.company;
 
 import java.io.*;
-
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args) throws InvalidFormatException, FileNotFoundException, IOException
+    public static void main(String[] args) throws InvalidFormatException, IOException
     {
         // This is checking the file before we go any further
         // If the file is not correct - there's no reason to go any further.
-        try
-        {
+        try {
+            // This begins the file type checking
             BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
-            String check = " ";
+            String check;
             check = input.readLine();
-            if(check.equals("LGOO"))
-            {
+            if (check.equals("LGOO")) {
                 System.out.println("Your input file is good!");
                 input.close();
             }
             // Checks for invalid file format
-            else if(!check.equals("LGOO"))
-            {
+            else if (!check.equals("LGOO")) {
                 InvalidFormatException ife = new InvalidFormatException(false);
-                if(!ife.getIsInvalid())
-                {
-                    throw(ife);
+                if (!ife.getIsInvalid()) {
+                    throw (ife);
                 }
             }
             // Checks to make sure something is in the file
-            else if(!check.equals(null))
-            {
+            else if (!check.equals(null)) {
                 throw new IOException();
             }
 
@@ -41,15 +36,11 @@ public class Main
         catch(InvalidFormatException ife)
         {
             System.out.println("File is an invalid format.");
-        }
-      /*catch(AccessDeniedException ade)
-        {
-            System.out.println("Access to this file is denied. Please check your permissions.");
             System.exit(0);
-        }*/
+        }
         catch(FileNotFoundException fnfe)
         {
-            System.out.println("File not found.");
+            System.out.println("File not found, please check that the file exists or that your are permitted to view the file.");
             System.exit(0);
         }
         catch(IOException ioe)

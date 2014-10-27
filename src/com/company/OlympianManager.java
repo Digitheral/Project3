@@ -17,7 +17,7 @@ public class OlympianManager
 
     }
     // This Setter now reads from the file
-    public void setOlympians() throws InvalidFormatException,FileNotFoundException, IOException
+    public void setOlympians() throws InvalidFormatException, IOException
     {
             try
             {
@@ -57,12 +57,8 @@ public class OlympianManager
             catch(InvalidFormatException ife)
             {
                 System.out.println("File is an invalid format.");
-            }
-          /* catch(AccessDeniedException ade)
-            {
-                System.out.println("Access to this file is denied. Please check your permissions.");
                 System.exit(0);
-            }*/
+            }
             catch (FileNotFoundException fnfe)
             {
                 System.out.println("File not found.");

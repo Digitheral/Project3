@@ -4,6 +4,7 @@ package com.company;
 
 public class InvalidFormatException extends Exception
 {
+
     private boolean isInvalid;
 
     public InvalidFormatException(boolean isInvalid)
