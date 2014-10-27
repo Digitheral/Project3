@@ -14,18 +14,31 @@ import java.security.AccessControlException;
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args) throws AccessDeniedException, FileNotFoundException, IOException
+    public static void main(String[] args) throws AccessDeniedException, InvalidFormatException, FileNotFoundException, IOException
     {
+        // This is checking the file before we go any further
+        // If the file is not correct - there's no reason to go any further.
         try
         {
-            BufferedReader input = new BufferedReader(new FileReader("C:\\Recovery.txt"));
+            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
             String check = " ";
+            check = input.readLine();
             if(check.equals("LGOO"))
             {
-               // invalid file type/permission
+                System.out.println("Your input file is good!");
                 input.close();
-
             }
+            // Checks to make sure something is in the file
+            else if(!check.equals(null))
+            {
+                throw new IOException();
+            }
+            // If something is in the file, it sees if the file is a wrong format
+            else if(!check.equals("LGOO"))
+            {
+                throw new InvalidFormatException();
+            }
+
         }
         catch(InvalidFormatException ife)
         {
