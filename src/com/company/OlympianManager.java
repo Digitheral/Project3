@@ -8,15 +8,12 @@ public class OlympianManager
     private static Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
-
         for(int i=0;i<16;i++)
         {
             myOlympian[i].name = "Constructed";
             myOlympian[i].sex = Olympian.Sex.MALE;
             myOlympian[i].age = "0";
-
         }
-
     }
     // This Setter now reads from the file
     public void setOlympians() throws InvalidFormatException, IOException
@@ -38,6 +35,7 @@ public class OlympianManager
                 int i = 0;
                 while(input.readLine() != null)
                 {
+                    myOlympian[i] = new Olympian();
                     check = input.readLine();
                     String[] values = new String[3];
                     // Makes sure the olympians are fully declared within the file
