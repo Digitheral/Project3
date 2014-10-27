@@ -10,7 +10,7 @@ public class Olympian extends OlympianManager
         FEMALE
     }
     // Olympian information
-    protected static String name;
-    protected static Sex sex;
-    protected static String age;
+    protected String name;
+    protected Sex sex;
+    protected String age;
 }

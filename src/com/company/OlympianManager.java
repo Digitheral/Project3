@@ -5,14 +5,17 @@ import java.io.*;
 // Base class that is called from Main for Olympians
 public class OlympianManager
 {
-    private static Olympian[] myOlympian = new Olympian[16];
+    private Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
         for(int i=0;i<16;i++)
         {
-            myOlympian[i].name = "Constructed";
-            myOlympian[i].sex = Olympian.Sex.MALE;
-            myOlympian[i].age = "0";
+            if (myOlympian == null)
+            {
+                myOlympian[i].name = "Constructed";
+                myOlympian[i].sex = Olympian.Sex.MALE;
+                myOlympian[i].age = "0";
+            }
         }
     }
     // This Setter now reads from the file
@@ -33,9 +36,9 @@ public class OlympianManager
                     }
                 }
                 int i = 0;
-                while(input.readLine() != null)
+                while(check != null && i < 17)
                 {
-                    myOlympian[i] = new Olympian();
+                    // Begins file reading
                     check = input.readLine();
                     String[] values = new String[3];
                     // Makes sure the olympians are fully declared within the file
@@ -61,8 +64,8 @@ public class OlympianManager
                         {
                             myOlympian[i].sex = Olympian.Sex.FEMALE;
                         }
-                        myOlympian[i].age = values[2];
                     }
+                    myOlympian[i].age = values[2];
                     i++;
                 }
                 input.close();

@@ -21,11 +21,15 @@ public class Main
             if (check.equals("LGOO"))
             {
                 System.out.println("Your input file is good!");
-                while(input.readLine() != null)
+                while(check != null)
                 {
-                    input.readLine();
-                    fileLength++;
+                    check = input.readLine();
+                    if(check != null) // Prevents null record from being added to total records
+                    {
+                        fileLength++;
+                    }
                 }
+                System.out.println("File length is "+ fileLength + " records.");
                 input.close();
             }
             // Checks for invalid file format
