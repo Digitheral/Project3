@@ -5,7 +5,7 @@ import java.io.*;
 // Base class that is called from Main for Olympians
 public class OlympianManager
 {
-    private Olympian[] myOlympian = new Olympian[16];
+    protected Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
         for(int i=0;i<16;i++)
@@ -19,11 +19,11 @@ public class OlympianManager
         }
     }
     // This Setter now reads from the file
-    public void setOlympians() throws InvalidFormatException, IOException
+    public void setOlympians() throws InvalidFormatException, NullPointerException, IOException
     {
+            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
             try
             {
-                BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
                 String check;
                 // Reading the .LGOO header just to make sure nothing happened between classes
                 check = input.readLine();
@@ -34,6 +34,7 @@ public class OlympianManager
                     {
                         throw(ife);
                     }
+
                 }
                 int i = 0;
                 while(check != null && i < 17)
@@ -52,23 +53,23 @@ public class OlympianManager
                         System.exit(0);
                     }
                     // This is to make sure that the whole record is present in the file
-                    if (!values[0].equals(null) || !values[1].equals(null) || !values[2].equals(null))
+                    if (values[0] != null || values[1] != null || values[2] != null)
                     {
                         myOlympian[i].name = values[0];
                         // If structure determines sex from file input
                         if(values[1].equals("M") || values[1].equals("m"))
                         {
-                            myOlympian[i].sex = Olympian.Sex.MALE;
+                           // myOlympian[i].sex = Olympian.Sex.MALE;
                         }
                         else if(values[1].equals("F") || values[1].equals("f"))
                         {
-                            myOlympian[i].sex = Olympian.Sex.FEMALE;
+                          //  myOlympian[i].sex = Olympian.Sex.FEMALE;
                         }
                     }
-                    myOlympian[i].age = values[2];
+                   // myOlympian[i].age = values[2];
+                    input.readLine(); // for end of line character
                     i++;
                 }
-                input.close();
             }
             catch(InvalidFormatException ife)
             {
@@ -84,6 +85,10 @@ public class OlympianManager
             {
                 System.out.println("Problem reading from file");
                 System.exit(0);
+            }
+            finally
+            {
+                input.close();
             }
         }
     public Olympian[] getOlympians()

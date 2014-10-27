@@ -12,10 +12,10 @@ public class Main
         int fileLength = 0; // To count the number of olympians in the file, this will be used for the constructor
         // This is checking the file before we go any further
         // If the file is not correct - there's no reason to go any further.
+        BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
         try
         {
             // This begins the file type checking
-            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
             String check;
             check = input.readLine();
             if (check.equals("LGOO"))
@@ -29,8 +29,7 @@ public class Main
                         fileLength++;
                     }
                 }
-                System.out.println("File length is "+ fileLength + " records.");
-                input.close();
+                System.out.println("File length is " + fileLength + " records.");
             }
             // Checks for invalid file format
             else if (!check.equals("LGOO"))
@@ -62,6 +61,10 @@ public class Main
         {
             System.out.println("Problem reading from file");
             System.exit(0);
+        }
+        finally
+        {
+            input.close();
         }
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
