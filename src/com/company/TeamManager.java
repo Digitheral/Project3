@@ -20,7 +20,7 @@ public class TeamManager extends Teams
     }
     public void setTeams()
     {
-        // use random here to get teams
+
     }
     public Teams[] getTeams()
     {

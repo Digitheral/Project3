@@ -8,11 +8,13 @@ public class OlympianManager
     private static Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
-        for(int i=0; i< myOlympian.length; i++)
+
+        for(int i=0;i<16;i++)
         {
-            myOlympian[i].name = "Smith";
-            myOlympian[i].sex =  Olympian.Sex.MALE;
-            myOlympian[i].age = "15";
+            myOlympian[i].name = "Constructed";
+            myOlympian[i].sex = Olympian.Sex.MALE;
+            myOlympian[i].age = "0";
+
         }
 
     }
@@ -21,7 +23,7 @@ public class OlympianManager
     {
             try
             {
-                BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgooo"));
+                BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
                 String check;
                 // Reading the .LGOO header just to make sure nothing happened between classes
                 check = input.readLine();
@@ -33,11 +35,23 @@ public class OlympianManager
                         throw(ife);
                     }
                 }
-                for(int i=0; i<16; i++)
+                int i = 0;
+                while(input.readLine() != null)
                 {
                     check = input.readLine();
-                    String[] values = check.split(",");
-                    if (!values[0].equals(null))
+                    String[] values = new String[3];
+                    // Makes sure the olympians are fully declared within the file
+                    try
+                    {
+                        values = check.split(",");
+                    }
+                    catch(NullPointerException npe)
+                    {
+                        System.out.println("There is an error in your olympians declarations.");
+                        System.exit(0);
+                    }
+                    // This is to make sure that the whole record is present in the file
+                    if (!values[0].equals(null) || !values[1].equals(null) || !values[2].equals(null))
                     {
                         myOlympian[i].name = values[0];
                         // If structure determines sex from file input
@@ -51,6 +65,7 @@ public class OlympianManager
                         }
                         myOlympian[i].age = values[2];
                     }
+                    i++;
                 }
                 input.close();
             }

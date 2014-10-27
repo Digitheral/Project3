@@ -9,26 +9,37 @@ public class Main
     // Main Method for Splash Screen
     public static void main(String[] args) throws InvalidFormatException, IOException
     {
+        int fileLength = 0; // To count the number of olympians in the file, this will be used for the constructor
         // This is checking the file before we go any further
         // If the file is not correct - there's no reason to go any further.
-        try {
+        try
+        {
             // This begins the file type checking
             BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
             String check;
             check = input.readLine();
-            if (check.equals("LGOO")) {
+            if (check.equals("LGOO"))
+            {
                 System.out.println("Your input file is good!");
+                while(input.readLine() != null)
+                {
+                    input.readLine();
+                    fileLength++;
+                }
                 input.close();
             }
             // Checks for invalid file format
-            else if (!check.equals("LGOO")) {
+            else if (!check.equals("LGOO"))
+            {
                 InvalidFormatException ife = new InvalidFormatException(false);
-                if (!ife.getIsInvalid()) {
+                if (!ife.getIsInvalid())
+                {
                     throw (ife);
                 }
             }
             // Checks to make sure something is in the file
-            else if (!check.equals(null)) {
+            else if (!check.equals(null))
+            {
                 throw new IOException();
             }
 
@@ -132,68 +143,13 @@ public class Main
     // This method displays the array of Olympian objects
     public static void displayOlympians(Olympian[] myOlympians)
     {
-        String[] OlympianNum = new String[16];
         for(int i=0; i < myOlympians.length; i++)
         {
-            switch(i)
-            {
-                case 0:
-                    OlympianNum[i] = "First";
-                    break;
-                case 1:
-                    OlympianNum[i] = "Second";
-                    break;
-                case 2:
-                    OlympianNum[i] = "Third";
-                    break;
-                case 3:
-                    OlympianNum[i] = "Fourth";
-                    break;
-                case 4:
-                    OlympianNum[i] = "Fifth";
-                    break;
-                case 5:
-                    OlympianNum[i] = "Sixth";
-                    break;
-                case 6:
-                    OlympianNum[i] = "Seventh";
-                    break;
-                case 7:
-                    OlympianNum[i] = "Eighth";
-                    break;
-                case 8:
-                    OlympianNum[i] = "Ninth";
-                    break;
-                case 9:
-                    OlympianNum[i] = "Tenth";
-                    break;
-                case 10:
-                    OlympianNum[i] = "Eleventh";
-                    break;
-                case 11:
-                    OlympianNum[i] = "Twelfth";
-                    break;
-                case 12:
-                    OlympianNum[i] = "Thirteenth";
-                    break;
-                case 13:
-                    OlympianNum[i] = "Fourteenth";
-                    break;
-                case 14:
-                    OlympianNum[i] = "Fifteenth";
-                    break;
-                case 15:
-                    OlympianNum[i] = "Sixteenth";
-                    break;
-                default:
-                    break;
-            }
-            System.out.println("The data for the " + OlympianNum[i] + " olympian:");
-
             System.out.println("Name: " + myOlympians[i].name);
             System.out.println("Sex: " + myOlympians[i].sex);
             System.out.println("Age: " + myOlympians[i].age);
         }
+
     }
     // This method displays the array of Team objects
     public static void displayTeams(Teams[] myTeams)
