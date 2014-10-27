@@ -17,19 +17,22 @@ public class OlympianManager
 
     }
     // This Setter now reads from the file
-    public void setOlympians() throws Exception
+    public void setOlympians() throws FileNotFoundException, IOException
     {
             try
             {
                 BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
                 String check;
+                // Reading the .LGOO header
+                check = input.readLine();
                 for(int i=0; i<16; i++)
                 {
                     check = input.readLine();
                     String[] values = check.split(",");
-                    if (!values[0].equals("LGOO"))
+                    if (!values[0].equals(null))
                     {
                         myOlympian[i].name = values[0];
+                        // If structure determines sex from file input
                         if(values[1].equals("M") || values[1].equals("m"))
                         {
                             myOlympian[i].sex = Olympian.Sex.MALE;
@@ -41,6 +44,7 @@ public class OlympianManager
                         myOlympian[i].age = values[2];
                     }
                 }
+                input.close();
             }
             catch (FileNotFoundException fnfe)
             {

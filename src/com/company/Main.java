@@ -5,33 +5,46 @@ package com.company;
 
 
 import com.sun.javaws.exceptions.InvalidArgumentException;
+import com.sun.media.sound.InvalidFormatException;
 
 import java.io.*;
+import java.nio.file.AccessDeniedException;
+import java.security.AccessControlException;
 
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args) throws Exception
+    public static void main(String[] args) throws AccessDeniedException, FileNotFoundException, IOException
     {
         try
         {
-            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+            BufferedReader input = new BufferedReader(new FileReader("C:\\Recovery.txt"));
             String check = " ";
             if(check.equals("LGOO"))
             {
-                // this works needs more error checking
-                // invalid file type/permission
+               // invalid file type/permission
                 input.close();
 
             }
         }
+        catch(InvalidFormatException ife)
+        {
+            System.out.println("File is an invalid format.");
+        }
+        catch(AccessDeniedException ade)
+        {
+            System.out.println("Access to this file is denied. Please check your permissions.");
+            System.exit(0);
+        }
         catch(FileNotFoundException fnfe)
         {
             System.out.println("File not found.");
+            System.exit(0);
         }
         catch(IOException ioe)
         {
             System.out.println("Problem reading from file");
+            System.exit(0);
         }
         // Prints Splash Screen
         System.out.println("Smith Family Lawn Olympic Games");
@@ -104,6 +117,7 @@ public class Main
         System.out.println("Input 'o' or 'olympians' to view the status of all olympians.");
         System.out.println("You figured out how to get here by typing 'h' or 'help'.");
     }
+    // This method displays the array of Event objects
     public static void displayEvents(Event[] myEvents)
     {
         for(int i=0; i < myEvents.length;i++)
@@ -113,6 +127,7 @@ public class Main
             System.out.println("Extra info includes: " + myEvents[i].getExtraInfo());
         }
     }
+    // This method displays the array of Olympian objects
     public static void displayOlympians(Olympian[] myOlympians)
     {
         String[] OlympianNum = new String[16];
@@ -178,6 +193,7 @@ public class Main
             System.out.println("Age: " + myOlympians[i].age);
         }
     }
+    // This method displays the array of Team objects
     public static void displayTeams(Teams[] myTeams)
     {
         System.out.println("display teams here");

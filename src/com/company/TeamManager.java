@@ -11,8 +11,8 @@ public class TeamManager extends Teams
     // Constructor
     public TeamManager()
     {
-    //    myTeams[0].olympian1 = Seomthing;
-    //    myTeams[0].olympian2 = Something else;
+        myTeams[0].olympian1 =  null;
+        myTeams[0].olympian2 = null;
         myTeams[0].wins = 5;
         myTeams[0].losses = 2;
 
@@ -20,7 +20,7 @@ public class TeamManager extends Teams
     }
     public void setTeams()
     {
-        // use random to set teams
+        // use random here to get teams
     }
     public Teams[] getTeams()
     {
