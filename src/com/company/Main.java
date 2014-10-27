@@ -3,18 +3,12 @@
 // CMPT 220 - Fall 2014 Software Development
 package com.company;
 
-
-import com.sun.javaws.exceptions.InvalidArgumentException;
-import com.sun.media.sound.InvalidFormatException;
-
 import java.io.*;
-import java.nio.file.AccessDeniedException;
-import java.security.AccessControlException;
 
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args) throws AccessDeniedException, InvalidFormatException, FileNotFoundException, IOException
+    public static void main(String[] args) throws InvalidFormatException, FileNotFoundException, IOException
     {
         // This is checking the file before we go any further
         // If the file is not correct - there's no reason to go any further.
@@ -28,15 +22,19 @@ public class Main
                 System.out.println("Your input file is good!");
                 input.close();
             }
+            // Checks for invalid file format
+            else if(!check.equals("LGOO"))
+            {
+                InvalidFormatException ife = new InvalidFormatException(false);
+                if(!ife.getIsInvalid())
+                {
+                    throw(ife);
+                }
+            }
             // Checks to make sure something is in the file
             else if(!check.equals(null))
             {
                 throw new IOException();
-            }
-            // If something is in the file, it sees if the file is a wrong format
-            else if(!check.equals("LGOO"))
-            {
-                throw new InvalidFormatException();
             }
 
         }
@@ -44,11 +42,11 @@ public class Main
         {
             System.out.println("File is an invalid format.");
         }
-        catch(AccessDeniedException ade)
+      /*catch(AccessDeniedException ade)
         {
             System.out.println("Access to this file is denied. Please check your permissions.");
             System.exit(0);
-        }
+        }*/
         catch(FileNotFoundException fnfe)
         {
             System.out.println("File not found.");

@@ -17,14 +17,22 @@ public class OlympianManager
 
     }
     // This Setter now reads from the file
-    public void setOlympians() throws FileNotFoundException, IOException
+    public void setOlympians() throws InvalidFormatException,FileNotFoundException, IOException
     {
             try
             {
-                BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+                BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgooo"));
                 String check;
-                // Reading the .LGOO header
+                // Reading the .LGOO header just to make sure nothing happened between classes
                 check = input.readLine();
+                if(!check.equals("LGOO"))
+                {
+                    InvalidFormatException ife = new InvalidFormatException(false);
+                    if(!ife.getIsInvalid())
+                    {
+                        throw(ife);
+                    }
+                }
                 for(int i=0; i<16; i++)
                 {
                     check = input.readLine();
@@ -46,13 +54,24 @@ public class OlympianManager
                 }
                 input.close();
             }
+            catch(InvalidFormatException ife)
+            {
+                System.out.println("File is an invalid format.");
+            }
+          /* catch(AccessDeniedException ade)
+            {
+                System.out.println("Access to this file is denied. Please check your permissions.");
+                System.exit(0);
+            }*/
             catch (FileNotFoundException fnfe)
             {
                 System.out.println("File not found.");
+                System.exit(0);
             }
             catch (IOException ioe)
             {
                 System.out.println("Problem reading from file");
+                System.exit(0);
             }
         }
     public Olympian[] getOlympians()
