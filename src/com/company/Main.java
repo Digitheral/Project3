@@ -92,11 +92,11 @@ public class Main
                 else if(inputLine.equals("o")|| inputLine.equals("olympians"))
                 {
                     System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
-                    OlympianManager myOlympianManager = new OlympianManager(); // Instantiating the OlympianManager class
+                    OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
                     System.out.println("This is the listing for each olympian: ");
                     myOlympianManager.setOlympians();
                     Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
-                    displayOlympians(myOlympians);
+                    displayOlympians(myOlympians, fileLength);
                 }
                 else if(inputLine.equals("t")|| inputLine.equals("teams"))
                 {
@@ -152,9 +152,9 @@ public class Main
         }
     }
     // This method displays the array of Olympian objects
-    public static void displayOlympians(Olympian[] myOlympians)
+    public static void displayOlympians(Olympian[] myOlympians, int fileLength)
     {
-        for(int i=0; i < myOlympians.length; i++)
+        for(int i=0; i < fileLength; i++)
         {
             System.out.println("Name: " + myOlympians[i].name);
             System.out.println("Sex: " + myOlympians[i].sex);

@@ -7,7 +7,8 @@ public class Olympian
     public enum Sex
     {
         MALE,
-        FEMALE
+        FEMALE,
+        DEFAULT
     }
     // Olympian information
     protected String name;

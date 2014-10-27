@@ -5,17 +5,17 @@ import java.io.*;
 // Base class that is called from Main for Olympians
 public class OlympianManager extends Olympian
 {
-    protected Olympian[] myOlympian = new Olympian[16];
-    public OlympianManager()
+    protected Olympian[] myOlympian = new Olympian[99];
+    public OlympianManager(int fileLength)
     {
-        for(int i=0;i<16;i++)
+        for(int i=0;i<fileLength;i++)
         {
             myOlympian[i] = new Olympian();
             try
             {
-                this.myOlympian[i].name = "Constructed";
-                this.myOlympian[i].sex = Olympian.Sex.MALE;
-                this.myOlympian[i].age = "15";
+                this.myOlympian[i].name = "Default";
+                this.myOlympian[i].sex = Sex.DEFAULT;
+                this.myOlympian[i].age = "0";
             }
             catch(NullPointerException npe)
             {
