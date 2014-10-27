@@ -13,7 +13,7 @@ public class OlympianManager extends Olympian
             myOlympian[i] = new Olympian();
             try
             {
-                this.myOlympian[i].name = "BoB";
+                this.myOlympian[i].name = "Constructed";
                 this.myOlympian[i].sex = Olympian.Sex.MALE;
                 this.myOlympian[i].age = "15";
             }
@@ -40,10 +40,9 @@ public class OlympianManager extends Olympian
                     {
                         throw(ife);
                     }
-
                 }
                 int i = 0;
-                while(input.readLine() != null)
+                while(i<16)
                 {
                     // Begins file reading
                     check = input.readLine();
@@ -54,7 +53,7 @@ public class OlympianManager extends Olympian
                         // File is delimited by commas, this splits it apart
                         values = check.split(",");
                     }
-                    catch(NullPointerException npe)
+                   catch(NullPointerException npe)
                     {
                         System.out.println("There is an error in your olympians declarations.");
                         System.exit(0);
@@ -74,7 +73,6 @@ public class OlympianManager extends Olympian
                         }
                     }
                     myOlympian[i].age = values[2];
-                   input.readLine(); // for end of line character
                     i++;
                 }
             }
