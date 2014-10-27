@@ -114,7 +114,7 @@ public class Main
                 }
                 else if(inputLine.equals("q") || inputLine.equals("quit"))
                 {
-                    System.out.println("Have a nice day.");
+                    System.out.println("Ending Program.");
                     System.exit(0);
                 }
                 else

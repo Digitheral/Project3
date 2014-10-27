@@ -8,7 +8,7 @@ public class OlympianManager
     protected Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
-        for(int i=0;i<16;i++)
+        for(int i=0;i<=32;i++)
         {
             if (myOlympian == null)
             {
@@ -17,6 +17,7 @@ public class OlympianManager
                 myOlympian[i].age = "0";
             }
         }
+        System.out.print("done constructing");
     }
     // This Setter now reads from the file
     public void setOlympians() throws InvalidFormatException, NullPointerException, IOException
@@ -45,6 +46,7 @@ public class OlympianManager
                     // Makes sure the olympians are fully declared within the file
                     try
                     {
+                        // File is delimited by commas, this splits it apart
                         values = check.split(",");
                     }
                     catch(NullPointerException npe)
@@ -53,20 +55,20 @@ public class OlympianManager
                         System.exit(0);
                     }
                     // This is to make sure that the whole record is present in the file
-                    if (values[0] != null || values[1] != null || values[2] != null)
+                    if (values[0] != null && values[1] != null && values[2] != null)
                     {
                         myOlympian[i].name = values[0];
                         // If structure determines sex from file input
                         if(values[1].equals("M") || values[1].equals("m"))
                         {
-                           // myOlympian[i].sex = Olympian.Sex.MALE;
+                           myOlympian[i].sex = Olympian.Sex.MALE;
                         }
                         else if(values[1].equals("F") || values[1].equals("f"))
                         {
-                          //  myOlympian[i].sex = Olympian.Sex.FEMALE;
+                           myOlympian[i].sex = Olympian.Sex.FEMALE;
                         }
                     }
-                   // myOlympian[i].age = values[2];
+                    myOlympian[i].age = values[2];
                     input.readLine(); // for end of line character
                     i++;
                 }
