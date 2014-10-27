@@ -3,21 +3,26 @@ package com.company;
 import java.io.*;
 
 // Base class that is called from Main for Olympians
-public class OlympianManager
+public class OlympianManager extends Olympian
 {
     protected Olympian[] myOlympian = new Olympian[16];
     public OlympianManager()
     {
-        for(int i=0;i<=32;i++)
+        for(int i=0;i<16;i++)
         {
-            if (myOlympian == null)
+            myOlympian[i] = new Olympian();
+            try
             {
-                myOlympian[i].name = "Constructed";
-                myOlympian[i].sex = Olympian.Sex.MALE;
-                myOlympian[i].age = "0";
+                this.myOlympian[i].name = "BoB";
+                this.myOlympian[i].sex = Olympian.Sex.MALE;
+                this.myOlympian[i].age = "15";
+            }
+            catch(NullPointerException npe)
+            {
+                System.out.println("Construction of the Olympians failed.");
+                System.exit(0);
             }
         }
-        System.out.print("done constructing");
     }
     // This Setter now reads from the file
     public void setOlympians() throws InvalidFormatException, NullPointerException, IOException
@@ -38,7 +43,7 @@ public class OlympianManager
 
                 }
                 int i = 0;
-                while(check != null && i < 17)
+                while(input.readLine() != null)
                 {
                     // Begins file reading
                     check = input.readLine();
@@ -69,7 +74,7 @@ public class OlympianManager
                         }
                     }
                     myOlympian[i].age = values[2];
-                    input.readLine(); // for end of line character
+                   input.readLine(); // for end of line character
                     i++;
                 }
             }

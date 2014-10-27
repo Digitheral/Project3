@@ -127,6 +127,10 @@ public class Main
         {
             System.out.println("Input error");
         }
+        finally
+        {
+            input.close();
+        }
     }
     // Help menu
     public static void help()
