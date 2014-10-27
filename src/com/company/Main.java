@@ -75,6 +75,7 @@ public class Main
         {
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader consoleInput = new BufferedReader(isr);
+
             String inputLine = " ";
             while (consoleInput != null)
             {
@@ -91,18 +92,19 @@ public class Main
                 }
                 else if(inputLine.equals("o")|| inputLine.equals("olympians"))
                 {
+                    // We pass fileLength around here to make sure the Olympians array is the right length
                     System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
-                    OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
                     System.out.println("This is the listing for each olympian: ");
-                    myOlympianManager.setOlympians();
+                    OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
+                    myOlympianManager.setOlympians(fileLength);
                     Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
                     displayOlympians(myOlympians, fileLength);
                 }
                 else if(inputLine.equals("t")|| inputLine.equals("teams"))
                 {
                     System.out.println("\nTEAM LISTINGS\n");
-                    TeamManager myTeamManager = new TeamManager();
                     System.out.println("This is the listing for each team: ");
+                    TeamManager myTeamManager = new TeamManager();
                     myTeamManager.setTeams();
                     Teams[] myTeams = myTeamManager.getTeams();
                     displayTeams(myTeams);

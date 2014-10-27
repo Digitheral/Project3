@@ -8,7 +8,8 @@ public class Olympian
     {
         MALE,
         FEMALE,
-        DEFAULT
+        DEFAULT // Why is DEFAULT a Sex? DEFAULT is used to construct each olympian with, this will be the final check
+                // to see if an Olympian is REALLY being used
     }
     // Olympian information
     protected String name;

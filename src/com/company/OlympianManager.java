@@ -5,7 +5,7 @@ import java.io.*;
 // Base class that is called from Main for Olympians
 public class OlympianManager extends Olympian
 {
-    protected Olympian[] myOlympian = new Olympian[99];
+    protected static Olympian[] myOlympian = new Olympian[99];
     public OlympianManager(int fileLength)
     {
         for(int i=0;i<fileLength;i++)
@@ -25,7 +25,7 @@ public class OlympianManager extends Olympian
         }
     }
     // This Setter now reads from the file
-    public void setOlympians() throws InvalidFormatException, NullPointerException, IOException
+    public void setOlympians(int fileLength) throws InvalidFormatException, NullPointerException, IOException
     {
             BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
             try
@@ -42,7 +42,7 @@ public class OlympianManager extends Olympian
                     }
                 }
                 int i = 0;
-                while(i<16)
+                while(i<fileLength)
                 {
                     // Begins file reading
                     check = input.readLine();

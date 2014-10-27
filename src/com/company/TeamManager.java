@@ -15,11 +15,11 @@ public class TeamManager extends Teams
         myTeams[0].olympian2 = null;
         myTeams[0].wins = 5;
         myTeams[0].losses = 2;
-
-
     }
     public void setTeams()
     {
+        // Calculating team ammount
+
 
     }
     public Teams[] getTeams()
