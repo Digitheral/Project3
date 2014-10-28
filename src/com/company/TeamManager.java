@@ -31,8 +31,9 @@ public class TeamManager extends Teams
         {
             // While the counter, i is less than the fileLength we will continue this loop
             int n = rand.nextInt(fileLength) + 1;
-            myTeams[i].olympian1 = myOlympians[fileLength];
-            myTeams[i].olympian2 = myOlympians[fileLength];
+            int m = rand.nextInt(fileLength) + 1;
+            myTeams[i].olympian1 = myOlympians[n];
+            myTeams[i].olympian2 = myOlympians[m];
             int w = rand.nextInt(10) + 1; // random number for wins
             int l = rand.nextInt(10) + 1; // random number for losses
             myTeams[i].wins = w;
