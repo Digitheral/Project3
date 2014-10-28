@@ -5,7 +5,7 @@ import java.io.*;
 // Base class that is called from Main for Olympians
 public class OlympianManager extends Olympian
 {
-    protected static Olympian[] myOlympian = new Olympian[99];
+    protected Olympian[] myOlympian = new Olympian[99];
     public OlympianManager(int fileLength)
     {
         for(int i=0;i<fileLength;i++)

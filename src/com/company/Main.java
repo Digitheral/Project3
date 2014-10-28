@@ -104,7 +104,6 @@ public class Main
                 {
                     System.out.println("\nTEAM LISTINGS\n");
                     System.out.println("This is the listing for each team: ");
-                    TeamManager myTeamManager = new TeamManager();
 
                     // Olympian Manager object is instantiated in case Teams are chosen before Olypmians
                     // You can't have teams without olympians
@@ -112,7 +111,8 @@ public class Main
                     myOlympianManager.setOlympians(fileLength);
                     Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
 
-                    myTeamManager.setTeams(myOlympians);
+                    TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
+                    myTeamManager.setTeams(myOlympians, fileLength);
                     Teams[] myTeams = myTeamManager.getTeams();
                     displayTeams(myTeams);
 

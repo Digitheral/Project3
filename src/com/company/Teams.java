@@ -6,8 +6,8 @@ package com.company;
 public class Teams extends Olympian
 {
     // Team members
-    protected Olympian olympian1 = new Olympian();
-    protected Olympian olympian2 = new Olympian();
+    protected Olympian olympian1;
+    protected Olympian olympian2;
 
     // Wins and losses
     protected int wins;
