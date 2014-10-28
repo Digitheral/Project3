@@ -22,9 +22,11 @@ public class TeamManager extends Teams
     }
     public void setTeams(Olympian[] myOlympians, int fileLength)
     {
+        // Variable that holds the amount of teams
+        int TeamCount = fileLength / 2;
+        // Random generator for teams
        Random rand = new Random();
        int n = rand.nextInt(fileLength) + 1;
-       System.out.println(n);
 
     }
     public Teams[] getTeams()
