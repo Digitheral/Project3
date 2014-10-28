@@ -9,7 +9,7 @@ public class TeamManager extends Teams
 {
     private static Teams[] myTeams;
     // Constructor
-    public TeamManager()
+    public TeamManager(Olympian[] myOlympians)
     {
         myTeams[0].olympian1 =  null;
         myTeams[0].olympian2 = null;
@@ -18,9 +18,7 @@ public class TeamManager extends Teams
     }
     public void setTeams()
     {
-        // Calculating team ammount
-
-
+       
     }
     public Teams[] getTeams()
     {
