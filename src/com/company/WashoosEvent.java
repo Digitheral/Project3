@@ -3,10 +3,15 @@ package com.company;
 // Class for Washoos
 public class WashoosEvent extends Event
 {
-    private boolean hasAutoWinStick = false;
-    private int numWashoos = 5;
+    private boolean hasAutoWinStick;
+    private int numWashoos;
     /* Override returns above variables, this override is slightly different than the others. We concatenate both of the
     variables provided to return them. First we convert them to strings, then concatenate, then return. */
+    public void setExtraWashoos()
+    {
+        hasAutoWinStick = false;
+        numWashoos = 5;
+    }
     @Override
     public String getExtraInfo()
     {

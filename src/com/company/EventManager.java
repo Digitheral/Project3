@@ -33,6 +33,7 @@ public class EventManager
                     myEvent[i].playTo = 21;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 13;
+                    myWashoos.setExtraWashoos();
                     myEvent[i].getExtraInfo();
                     break;
                 case 1:
@@ -40,6 +41,7 @@ public class EventManager
                     myEvent[i].playTo = 21;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 5;
+                    myCanJam.setFrisbeeSize();
                     myEvent[i].getExtraInfo();
                     break;
                 case 2:
@@ -47,6 +49,7 @@ public class EventManager
                     myEvent[i].playTo = 12;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 15;
+                    myHorseshoes.setNumHorseShoes();
                     myEvent[i].getExtraInfo();
                     break;
                 case 3:
@@ -54,6 +57,7 @@ public class EventManager
                     myEvent[i].playTo = 21;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 13;
+                    myCornhole.setNumBeanBags();
                     myEvent[i].getExtraInfo();
                     break;
                 case 4:
@@ -61,6 +65,7 @@ public class EventManager
                     myEvent[i].playTo = 21;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 13;
+                    myLadderBall.setNumRungs();
                     myEvent[i].getExtraInfo();
                     break;
                 case 5:
@@ -68,6 +73,7 @@ public class EventManager
                     myEvent[i].playTo = 12;
                     myEvent[i].isPlayToExact = false;
                     myEvent[i].playDistance = 14;
+                    myStickgame.setFrisbeeSize();
                     myEvent[i].getExtraInfo();
                     break;
                 default:

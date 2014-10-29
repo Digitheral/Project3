@@ -5,7 +5,12 @@ package com.company;
  */
 public class LadderBallEvent extends Event
 {
-    private int numRungs = 3;
+    private int numRungs;
+    // Override returns above variable
+    public void setNumRungs()
+    {
+        numRungs = 3;
+    }
     @Override
     public String getExtraInfo()
     {

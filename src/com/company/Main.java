@@ -113,7 +113,7 @@ public class Main
                     TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
                     myTeamManager.setTeams(myOlympians, fileLength);
                     Teams[] myTeams = myTeamManager.getTeams();
-                    displayTeams(myTeams,fileLength);
+                    displayTeams(myTeams, fileLength);
 
                 }
                 else if(inputLine.equals("h")|| inputLine.equals("help"))

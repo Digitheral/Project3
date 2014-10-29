@@ -18,8 +18,6 @@ public class TeamManager extends Teams
             myTeams[i].olympian2 = myOlympians[i];
             myTeams[i].wins = 0;
             myTeams[i].losses = 0;
-            myTeams[i].olympian1.isOnATeam = false;
-            myTeams[i].olympian2.isOnATeam = false;
         }
     }
     public void setTeams(Olympian[] myOlympians, int fileLength)
@@ -32,16 +30,17 @@ public class TeamManager extends Teams
         while (i < TeamCount)
         {
             // While the counter, i is less than the fileLength we will continue this loop
-            int n = rand.nextInt(fileLength) + 1;
-            int m = rand.nextInt(fileLength) + 1;
+            // These randomizers randomly choose olympians
+            int n = rand.nextInt(fileLength);
+            int m = rand.nextInt(fileLength);
             myTeams[i].olympian1 = myOlympians[n];
             myTeams[i].olympian2 = myOlympians[m];
             // This matches the olympians onto teams and makes sure they aren't on multiple teams and
             // so that males and females are matched correctly
-            if(myTeams[i].olympian1 != myTeams[i].olympian2 && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam && myTeams[i].olympian1.sex != myTeams[i].olympian2.sex)
+            if(!myTeams[i].olympian1.name.equals(myTeams[i].olympian2.name) && myTeams[i].olympian1.sex != myTeams[i].olympian2.sex && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam)
             {
-               /* myTeams[i].olympian1.isOnATeam = true;
-                myTeams[i].olympian2.isOnATeam = true;*/
+               myTeams[i].olympian1.isOnATeam = true;
+                myTeams[i].olympian2.isOnATeam = true;
                 int wins = rand.nextInt(50) + 1; // random number for wins
                 int losses = rand.nextInt(50) + 1; // random number for losses
                 myTeams[i].wins = wins;
