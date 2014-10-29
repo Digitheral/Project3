@@ -18,6 +18,8 @@ public class TeamManager extends Teams
             myTeams[i].olympian2 = myOlympians[i];
             myTeams[i].wins = 0;
             myTeams[i].losses = 0;
+            myTeams[i].olympian1.isOnATeam = false;
+            myTeams[i].olympian2.isOnATeam = false;
         }
     }
     public void setTeams(Olympian[] myOlympians, int fileLength)
@@ -30,23 +32,22 @@ public class TeamManager extends Teams
         while (i < TeamCount)
         {
             // While the counter, i is less than the fileLength we will continue this loop
-            int save = -1; // This will be used to make sure no olympians get onto the same team
             int n = rand.nextInt(fileLength) + 1;
             int m = rand.nextInt(fileLength) + 1;
-            // This matches the olympians onto teams and makes sure they aren't on multiple teams
-            if(n!=m && !myOlympians[n].isOnATeam && !myOlympians[m].isOnATeam && myOlympians[n].sex != myOlympians[m].sex)
+            myTeams[i].olympian1 = myOlympians[n];
+            myTeams[i].olympian2 = myOlympians[m];
+            // This matches the olympians onto teams and makes sure they aren't on multiple teams and
+            // so that males and females are matched correctly
+            if(myTeams[i].olympian1 != myTeams[i].olympian2 && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam && myTeams[i].olympian1.sex != myTeams[i].olympian2.sex)
             {
-                myTeams[i].olympian1 = myOlympians[n];
-                myOlympians[n].isOnATeam = true;
-                myTeams[i].olympian2 = myOlympians[m];
-                myOlympians[m].isOnATeam = true;
+               /* myTeams[i].olympian1.isOnATeam = true;
+                myTeams[i].olympian2.isOnATeam = true;*/
                 int wins = rand.nextInt(50) + 1; // random number for wins
                 int losses = rand.nextInt(50) + 1; // random number for losses
                 myTeams[i].wins = wins;
                 myTeams[i].losses = losses;
                 i++;
             }
-
         }
     }
     public Teams[] getTeams()

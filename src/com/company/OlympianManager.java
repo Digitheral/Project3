@@ -14,7 +14,7 @@ public class OlympianManager extends Olympian
             try
             {
                 this.myOlympian[i].name = "Default";
-                this.myOlympian[i].sex = Sex.DEFAULT;
+                this.myOlympian[i].sex = Sex.MALE;
                 this.myOlympian[i].age = "0";
             }
             catch(NullPointerException npe)
