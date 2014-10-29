@@ -30,15 +30,23 @@ public class TeamManager extends Teams
         while (i < TeamCount)
         {
             // While the counter, i is less than the fileLength we will continue this loop
+            int save = -1; // This will be used to make sure no olympians get onto the same team
             int n = rand.nextInt(fileLength) + 1;
             int m = rand.nextInt(fileLength) + 1;
-            myTeams[i].olympian1 = myOlympians[n];
-            myTeams[i].olympian2 = myOlympians[m];
-            int w = rand.nextInt(10) + 1; // random number for wins
-            int l = rand.nextInt(10) + 1; // random number for losses
-            myTeams[i].wins = w;
-            myTeams[i].losses = l;
-            i++;
+            // This matches the olympians onto teams and makes sure they aren't on multiple teams
+            if(n!=m && !myOlympians[n].isOnATeam && !myOlympians[m].isOnATeam && myOlympians[n].sex != myOlympians[m].sex)
+            {
+                myTeams[i].olympian1 = myOlympians[n];
+                myOlympians[n].isOnATeam = true;
+                myTeams[i].olympian2 = myOlympians[m];
+                myOlympians[m].isOnATeam = true;
+                int wins = rand.nextInt(50) + 1; // random number for wins
+                int losses = rand.nextInt(50) + 1; // random number for losses
+                myTeams[i].wins = wins;
+                myTeams[i].losses = losses;
+                i++;
+            }
+
         }
     }
     public Teams[] getTeams()

@@ -15,4 +15,5 @@ public class Olympian
     protected String name;
     protected Sex sex;
     protected String age;
+    protected boolean isOnATeam = false; // This is used for team matchmaking
 }
