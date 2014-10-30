@@ -12,6 +12,7 @@ public class Main
         int fileLength = 0; // To count the number of olympians in the file, this will be used for the constructor
         // This is checking the file before we go any further
         // If the file is not correct - there's no reason to go any further.
+        // Make sure the file path is correct!
         BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
         try
         {
@@ -109,7 +110,6 @@ public class Main
                     OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
                     myOlympianManager.setOlympians(fileLength);
                     Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
-
                     TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
                     myTeamManager.setTeams(myOlympians, fileLength);
                     Teams[] myTeams = myTeamManager.getTeams();

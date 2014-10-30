@@ -7,7 +7,11 @@ import java.util.Random; // to assign teams
  */
 public class TeamManager extends Teams
 {
-    private Teams[] myTeams = new Teams[99];
+    // Default size for team array
+    private Teams[] myTeams = new Teams[100];
+    // Counters for team pairing
+    protected int male = 0;
+    protected int female = 0;
     // Constructor
     public TeamManager(Olympian[] myOlympians, int fileLength)
     {
@@ -18,6 +22,14 @@ public class TeamManager extends Teams
             myTeams[i].olympian2 = myOlympians[i];
             myTeams[i].wins = 0;
             myTeams[i].losses = 0;
+            if(myOlympians[i].sex == Sex.MALE)
+            {
+                male++;
+            }
+            else
+            {
+                female++;
+            }
         }
     }
     public void setTeams(Olympian[] myOlympians, int fileLength)
@@ -37,9 +49,22 @@ public class TeamManager extends Teams
             myTeams[i].olympian2 = myOlympians[m];
             // This matches the olympians onto teams and makes sure they aren't on multiple teams and
             // so that males and females are matched correctly
-            if(!myTeams[i].olympian1.name.equals(myTeams[i].olympian2.name) && myTeams[i].olympian1.sex != myTeams[i].olympian2.sex && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam)
+            // This should make sure that if there is any ratio of males to females they will be assigned to teams
+            if(!myTeams[i].olympian1.name.equals(myTeams[i].olympian2.name) && myTeams[i].olympian1.sex != myTeams[i].olympian2.sex && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam && (male != 0 ||  female != 0))
             {
                myTeams[i].olympian1.isOnATeam = true;
+               myTeams[i].olympian2.isOnATeam = true;
+               int wins = rand.nextInt(50) + 1; // random number for wins
+               int losses = rand.nextInt(50) + 1; // random number for losses
+               myTeams[i].wins = wins;
+               myTeams[i].losses = losses;
+               i++;
+               male--;
+               female--;
+            }
+            else if((male == 0 || female == 0) && !myTeams[i].olympian1.name.equals(myTeams[i].olympian2.name) && !myTeams[i].olympian1.isOnATeam && !myTeams[i].olympian2.isOnATeam)
+            {
+                myTeams[i].olympian1.isOnATeam = true;
                 myTeams[i].olympian2.isOnATeam = true;
                 int wins = rand.nextInt(50) + 1; // random number for wins
                 int losses = rand.nextInt(50) + 1; // random number for losses
