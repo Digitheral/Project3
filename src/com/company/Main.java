@@ -1,13 +1,18 @@
-// Program: Project III - Lawn Olympic Games
-// Arthur Pearson
-// CMPT 220 - Fall 2014 Software Development
+/******************************************
+ Program: Project III - Lawn Olympic Games
+ Arthur Pearson
+ CMPT 220 - Fall 2014 Software Development
+ The file is read from the root directory of the C:/ make sure you either place your .lgoo file there or change the path.
+ Every exception in this program will invoke a system.exit() command and notify of the issue and notify that the
+ program is ending
+ ******************************************/
 package com.company;
 
 import java.io.*;
 public class Main
 {
     // Main Method for Splash Screen
-    public static void main(String[] args) throws InvalidFormatException, IOException
+    public static void main(String[] args) throws InvalidFormatException, IOException, NullPointerException
     {
         int fileLength = 0; // To count the number of olympians in the file, this will be used for the constructor
         // This is checking the file before we go any further
@@ -19,48 +24,54 @@ public class Main
             // This begins the file type checking
             String check;
             check = input.readLine();
-            if (check.equals("LGOO"))
+            try
             {
-                System.out.println("Your input file is good!");
-                while(check != null)
+                if (check.equals("LGOO"))
                 {
-                    check = input.readLine();
-                    if(check != null) // Prevents null record from being added to total records
+                    System.out.println("Your input file is good!");
+                    while(check != null)
                     {
-                        fileLength++;
+                        check = input.readLine();
+                        if(check != null) // Prevents null record from being added to total records
+                        {
+                            fileLength++;
+                        }
+                    }
+                    System.out.println("File length is " + fileLength + " records.");
+                }
+                // Checks for invalid file format
+                else if (!check.equals("LGOO"))
+                {
+                    InvalidFormatException ife = new InvalidFormatException(false);
+                    if (!ife.getIsInvalid())
+                    {
+                        throw (ife);
                     }
                 }
-                System.out.println("File length is " + fileLength + " records.");
             }
-            // Checks for invalid file format
-            else if (!check.equals("LGOO"))
+            catch(NullPointerException npe)
             {
-                InvalidFormatException ife = new InvalidFormatException(false);
-                if (!ife.getIsInvalid())
-                {
-                    throw (ife);
-                }
+                System.out.println("Problem reading from file. Check to see the data is correct.");
+                System.out.println("Ending Program.");
+                System.exit(0);
             }
-            // Checks to make sure something is in the file
-            else if (!check.equals(null))
-            {
-                throw new IOException();
-            }
-
         }
         catch(InvalidFormatException ife)
         {
             System.out.println("File is an invalid format.");
+            System.out.println("Ending Program.");
             System.exit(0);
         }
         catch(FileNotFoundException fnfe)
         {
             System.out.println("File not found, please check that the file exists or that your are permitted to view the file.");
+            System.out.println("Ending Program.");
             System.exit(0);
         }
         catch(IOException ioe)
         {
             System.out.println("Problem reading from file");
+            System.out.println("Ending Program.");
             System.exit(0);
         }
         finally
@@ -131,9 +142,12 @@ public class Main
                 }
             }
         }
+        // Catches input that the program wouldn't understand normally, just in case it can't handle something
+        // though the if structure should handle most of this
         catch(IOException ioe)
         {
             System.out.println("Input error");
+            System.out.println("Ending Program.");
         }
         finally
         {
