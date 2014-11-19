@@ -123,11 +123,19 @@ public class Main
                 {
                     System.out.println("\nTEAM LISTINGS\n");
                     System.out.println("This is the listing for each team: ");
-                    // Olympian Manager object is instantiated in case Teams are chosen before Olypmians
-                    // You can't have teams without olympians
                     displayTeams(myTeams, fileLength);
                 }
-               // else if() comps
+                else if (inputLine.equals("c") || inputLine.equals("competitions"))
+                {
+                    System.out.println("\nCOMPETITION LISTINGS\n");
+                    System.out.println("This is the listing for each competition: ");
+                }
+                else if (inputLine.equals("sc") || inputLine.equals("startcompetition"))
+                {
+                }
+                else if (inputLine.equals("ec") || inputLine.equals("endcompetition"))
+                {
+                }
                 else if (inputLine.equals("h") || inputLine.equals("help"))
                 {
                     help(); // calls the help method
