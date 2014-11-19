@@ -13,6 +13,7 @@ public class CompetitionManager extends Teams
     public void StartCompetition(Event event, Teams team1, Teams team2)
     {
         // Adding to end of linked list
+       myCompetition = new Competition();
        myCompetition.event = event;
        myCompetition.team1 = team1;
        myCompetition.team2 = team2;
