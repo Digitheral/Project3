@@ -104,7 +104,7 @@ public class Main
             Teams[] myTeams = myTeamManager.getTeams();
 
             CompetitionManager myCompManager = new CompetitionManager();
-            ICompetition[] myComps = myCompManager.getCompetitions();
+            Competition[] myComps = myCompManager.getCompetitions();
 
             while (consoleInput != null)
             {

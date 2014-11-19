@@ -37,7 +37,7 @@ public class CompetitionManager extends Teams
        // will getCompetitions to show in the c command
       return null;
     }
-    public void EndCompetition(ICompetition competition, Teams winningTeam)
+    public void EndCompetition(Competition competition, Teams winningTeam)
     {
         // Calculates wins and losses
         winningTeam.wins++;
@@ -49,9 +49,34 @@ public class CompetitionManager extends Teams
         {
             myCompetition.team2.losses++;
         }
-        // End comp with linked list
 
-        // empty linked list
-        // non empty linked list
+        // We have to find the competition before we delete it
+        findLocation();
+
+    }
+    public Competition findLocation()
+    {
+        // Check first element for null
+        if(head == null)
+        {
+            return null;
+        }
+        // Check first element for match of data
+        if(head.event == myCompetition.event && head.team1 == myCompetition.team1 && head.team2 == myCompetition.team2)
+        {
+            return head;
+        }
+        // Iterating through linked list
+        while(head.nextComp != null)
+        {
+            myCompetition = myCompetition.nextComp;
+            // If we found the right competition we return it back to EndCompetition
+            if(head.event == myCompetition.event && head.team1 == myCompetition.team1 && head.team2 == myCompetition.team2)
+            {
+                System.out.println("this exists in list");
+                return myCompetition;
+            }
+        }
+        return null;
     }
 }
