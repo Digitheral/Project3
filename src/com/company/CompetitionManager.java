@@ -6,6 +6,9 @@ package com.company;
 public class CompetitionManager extends Teams
 {
     Competition myCompetition = new Competition();
+    Competition head; // Head of linked list
+    Competition tail; // Tail of linked list
+
     CompetitionManager()
     {
         // this will begin the linked list with a null head and tail
@@ -17,6 +20,17 @@ public class CompetitionManager extends Teams
        myCompetition.event = event;
        myCompetition.team1 = team1;
        myCompetition.team2 = team2;
+       // Updating linked list
+       if(tail == null)
+       {
+           head = myCompetition;
+           tail = myCompetition;
+       }
+       else
+       {
+           tail.nextComp = myCompetition;
+           tail = myCompetition;
+       }
     }
     public ICompetition[] getCompetitions()
     {
@@ -25,7 +39,6 @@ public class CompetitionManager extends Teams
     }
     public void EndCompetition(ICompetition competition, Teams winningTeam)
     {
-        // Linked list will push everything back
         // Calculates wins and losses
         winningTeam.wins++;
         if(winningTeam != myCompetition.team1)
@@ -38,6 +51,7 @@ public class CompetitionManager extends Teams
         }
         // End comp with linked list
 
-
+        // empty linked list
+        // non empty linked list
     }
 }

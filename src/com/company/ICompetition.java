@@ -14,4 +14,5 @@ public interface ICompetition
     };
     Teams team1 = new Teams();
     Teams team2 = new Teams();
+   // public ICompetition[] listToArray(Competition myComps);
 }

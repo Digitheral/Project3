@@ -233,7 +233,7 @@ public class Main
     }
     public static void displayComps(ICompetition[] myComps)
     {
-        // this will show the linked list
+        System.out.println(myComps[0]);
     }
 }
 
