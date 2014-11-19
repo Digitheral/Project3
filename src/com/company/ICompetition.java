@@ -5,6 +5,7 @@ package com.company;
  */
 public interface ICompetition
 {
+    // This is the interface that Competition is implementing
     Event event = new Event() {
         @Override
         public String getExtraInfo() {

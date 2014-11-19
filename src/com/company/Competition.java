@@ -5,9 +5,9 @@ package com.company;
  */
 public class Competition implements ICompetition
 {
+    // This class will implement the linked list logic
     Event event;
     Teams team1;
     Teams team2;
-
-
+    
 }

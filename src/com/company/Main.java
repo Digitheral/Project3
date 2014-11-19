@@ -94,13 +94,17 @@ public class Main
             EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
             Event[] myEvents = myEventManager.getEvents(); // Instantiating an event object so EventManager can retrieve
             myEventManager.setEvents();
+
             OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
             myOlympianManager.setOlympians(fileLength, args[0]);
             Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
+
             TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
             myTeamManager.setTeams(myOlympians, fileLength);
             Teams[] myTeams = myTeamManager.getTeams();
 
+            CompetitionManager myCompManager = new CompetitionManager();
+            ICompetition[] myComps = myCompManager.getCompetitions();
 
             while (consoleInput != null)
             {
@@ -130,6 +134,7 @@ public class Main
                 {
                     System.out.println("\nCOMPETITION LISTINGS\n");
                     System.out.println("This is the listing for each competition: ");
+                    displayComps(myComps);
                 }
                 else if (inputLine.equals("sc") || inputLine.equals("startcompetition"))
                 {
@@ -145,13 +150,18 @@ public class Main
                     inputLine = consoleInput.readLine();
                     int z = Integer.parseInt(inputLine);
 
-                    CompetitionManager myCompManager = new CompetitionManager();
                     myCompManager.StartCompetition(myEvents[z], myTeams[x], myTeams[y]);
                     System.out.println("Competition between Teams " + x + " and " +  y + " has been started for event " + myEvents[z].name);
                 }
                 else if (inputLine.equals("ec") || inputLine.equals("endcompetition"))
                 {
-                    // end comp
+                    System.out.println("Select the competition to end");
+                    inputLine = consoleInput.readLine();
+                    int x = Integer.parseInt(inputLine);
+                    System.out.println("Which team won the competition?");
+                    inputLine = consoleInput.readLine();
+                    int y = Integer.parseInt(inputLine);
+                    myCompManager.EndCompetition(myComps[x], myTeams[y]);
                 }
                 else if (inputLine.equals("h") || inputLine.equals("help"))
                 {
@@ -220,6 +230,10 @@ public class Main
             System.out.println("Wins: " + myTeams[i].wins);
             System.out.println("Losses: " + myTeams[i].losses);
         }
+    }
+    public static void displayComps(ICompetition[] myComps)
+    {
+        // this will show the linked list
     }
 }
 
