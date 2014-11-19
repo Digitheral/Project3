@@ -12,4 +12,5 @@ public class Teams extends Olympian
     // Wins and losses
     protected int wins;
     protected int losses;
+    public boolean inCompetition = false; // this lets us check if the team is in a competition
 }

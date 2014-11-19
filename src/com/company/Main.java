@@ -104,7 +104,7 @@ public class Main
             Teams[] myTeams = myTeamManager.getTeams();
 
             CompetitionManager myCompManager = new CompetitionManager();
-            Competition myComps = myCompManager.getCompetitions();
+            ICompetition[] myComps = myCompManager.getCompetitions();
 
             while (consoleInput != null)
             {
@@ -138,20 +138,41 @@ public class Main
                 }
                 else if (inputLine.equals("sc") || inputLine.equals("startcompetition"))
                 {
-                    System.out.println("Select the first team number you wish to put in a competition");
-                    inputLine = consoleInput.readLine();
-                    int x = Integer.parseInt(inputLine);
-
-                    System.out.println("Select the second team number you wish to put in a competition");
-                    inputLine = consoleInput.readLine();
-                    int y = Integer.parseInt(inputLine);
-
-                    System.out.println("Select the event number you wish to put in a competition");
-                    inputLine = consoleInput.readLine();
-                    int z = Integer.parseInt(inputLine);
+                    int x = myTeams.length + 1;
+                    int y = myTeams.length + 1;
+                    int z = myEvents.length + 1;
+                    while(x > myTeams.length)
+                    {
+                        System.out.println("Select the first team number you wish to put in a competition");
+                        inputLine = consoleInput.readLine();
+                        x = Integer.parseInt(inputLine);
+                        if(x > myTeams.length)
+                        {
+                            System.out.println("Invalid team number");
+                        }
+                    }
+                    while(y > myTeams.length)
+                    {
+                        System.out.println("Select the second team number you wish to put in a competition");
+                        inputLine = consoleInput.readLine();
+                        y = Integer.parseInt(inputLine);
+                        if(x > myTeams.length)
+                        {
+                            System.out.println("Invalid team number");
+                        }
+                    }
+                    while(z > myEvents.length)
+                    {
+                        System.out.println("Select the event number you wish to put in a competition");
+                        inputLine = consoleInput.readLine();
+                        z = Integer.parseInt(inputLine);
+                        if(x > myEvents.length)
+                        {
+                            System.out.println("Invalid event number");
+                        }
+                    }
 
                     myCompManager.StartCompetition(myEvents[z], myTeams[x], myTeams[y]);
-                    System.out.println("Competition between Teams " + x + " and " +  y + " has been started for event " + myEvents[z].name);
                 }
                 else if (inputLine.equals("ec") || inputLine.equals("endcompetition"))
                 {
@@ -161,7 +182,7 @@ public class Main
                     System.out.println("Which team won the competition?");
                     inputLine = consoleInput.readLine();
                     int y = Integer.parseInt(inputLine);
-                    myCompManager.EndCompetition(myComps, myTeams[y]);
+                    myCompManager.EndCompetition(myComps[x], myTeams[y]);
                 }
                 else if (inputLine.equals("h") || inputLine.equals("help"))
                 {

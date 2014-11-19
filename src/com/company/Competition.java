@@ -13,4 +13,5 @@ public class Competition implements ICompetition
     Teams team2;
 
     Competition nextComp; // next pointer
+    Competition prevComp; // previous pointer
 }
