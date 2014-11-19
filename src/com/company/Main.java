@@ -254,7 +254,11 @@ public class Main
     }
     public static void displayComps(ICompetition[] myComps)
     {
-        System.out.println(myComps[0]);
+        for(int i=0; i< myComps.length; i++)
+        {
+            System.out.println("Competition number " + i);
+            System.out.println(myComps);
+        }
     }
 }
 
