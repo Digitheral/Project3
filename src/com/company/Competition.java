@@ -5,7 +5,9 @@ package com.company;
  */
 public class Competition implements ICompetition
 {
-    protected Teams Team1;
-    protected Teams Team2;
-    protected Event comptEvent;
+    Event event;
+    Teams team1;
+    Teams team2;
+
+
 }

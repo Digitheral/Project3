@@ -5,5 +5,12 @@ package com.company;
  */
 public interface ICompetition
 {
-
+    Event event = new Event() {
+        @Override
+        public String getExtraInfo() {
+            return null;
+        }
+    };
+    Teams team1 = new Teams();
+    Teams team2 = new Teams();
 }

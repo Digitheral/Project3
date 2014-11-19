@@ -9,6 +9,7 @@
 package com.company;
 
 import java.io.*;
+import java.lang.String;
 
 // Start, View, End Competition needs Linked List
 public class Main
@@ -132,9 +133,25 @@ public class Main
                 }
                 else if (inputLine.equals("sc") || inputLine.equals("startcompetition"))
                 {
+                    System.out.println("Select the first team number you wish to put in a competition");
+                    inputLine = consoleInput.readLine();
+                    int x = Integer.parseInt(inputLine);
+
+                    System.out.println("Select the second team number you wish to put in a competition");
+                    inputLine = consoleInput.readLine();
+                    int y = Integer.parseInt(inputLine);
+
+                    System.out.println("Select the event number you wish to put in a competition");
+                    inputLine = consoleInput.readLine();
+                    int z = Integer.parseInt(inputLine);
+
+                    CompetitionManager myCompManager = new CompetitionManager();
+                    myCompManager.StartCompetition(myEvents[z], myTeams[x], myTeams[y]);
+                    System.out.println("Competition between Teams " + x + " and " +  y + " has been started for event " + myEvents[z].name);
                 }
                 else if (inputLine.equals("ec") || inputLine.equals("endcompetition"))
                 {
+                    // end comp
                 }
                 else if (inputLine.equals("h") || inputLine.equals("help"))
                 {
