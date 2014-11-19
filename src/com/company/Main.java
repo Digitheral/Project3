@@ -9,16 +9,15 @@
 package com.company;
 
 import java.io.*;
+
+// Start, View, End Competition needs Linked List
 public class Main
 {
     // Main Method for Splash Screen
     public static void main(String[] args) throws InvalidFormatException, IOException, NullPointerException
     {
         int fileLength = 0; // To count the number of olympians in the file, this will be used for the constructor
-        // This is checking the file before we go any further
-        // If the file is not correct - there's no reason to go any further.
-        // Make sure the file path is correct!
-        BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+        BufferedReader input = new BufferedReader(new FileReader(args[0]));
         try
         {
             // This begins the file type checking
@@ -85,53 +84,55 @@ public class Main
         // when 'q' or 'quit' is input we end the cycle.
         try
         {
+            String inputLine = " ";
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader consoleInput = new BufferedReader(isr);
 
-            String inputLine = " ";
+            // Object instatiations
+
+            EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
+            Event[] myEvents = myEventManager.getEvents(); // Instantiating an event object so EventManager can retrieve
+            myEventManager.setEvents();
+            OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
+            myOlympianManager.setOlympians(fileLength, args[0]);
+            Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
+            TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
+            myTeamManager.setTeams(myOlympians, fileLength);
+            Teams[] myTeams = myTeamManager.getTeams();
+
+
             while (consoleInput != null)
             {
                 System.out.println("\nPlease input an argument: ");
                 inputLine = consoleInput.readLine();
-                if(inputLine.equals("e") || inputLine.equals("events"))
+                if (inputLine.equals("e") || inputLine.equals("events"))
+
                 {
                     System.out.println("\nEVENT LISTING AND DESCRIPTION.\n");
-                    EventManager myEventManager = new EventManager(); // Instantiating the EventManager class
                     System.out.println("This is the listing and description of each event: ");
-                    myEventManager.setEvents();
-                    Event[] myEvents = myEventManager.getEvents();
                     displayEvents(myEvents);
                 }
-                else if(inputLine.equals("o")|| inputLine.equals("olympians"))
+                else if (inputLine.equals("o") || inputLine.equals("olympians"))
                 {
                     // We pass fileLength around here to make sure the Olympians array is the right length
                     System.out.println("\nOLYMPIAN LISTING AND INFORMATION.\n");
                     System.out.println("This is the listing for each olympian: ");
-                    OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
-                    myOlympianManager.setOlympians(fileLength);
-                    Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
                     displayOlympians(myOlympians, fileLength);
                 }
-                else if(inputLine.equals("t")|| inputLine.equals("teams"))
+                else if (inputLine.equals("t") || inputLine.equals("teams"))
                 {
                     System.out.println("\nTEAM LISTINGS\n");
                     System.out.println("This is the listing for each team: ");
                     // Olympian Manager object is instantiated in case Teams are chosen before Olypmians
                     // You can't have teams without olympians
-                    OlympianManager myOlympianManager = new OlympianManager(fileLength); // Instantiating the OlympianManager class
-                    myOlympianManager.setOlympians(fileLength);
-                    Olympian[] myOlympians = myOlympianManager.getOlympians(); // Instantiating an Olympian class so OlympianManager can retrieve
-                    TeamManager myTeamManager = new TeamManager(myOlympians, fileLength);
-                    myTeamManager.setTeams(myOlympians, fileLength);
-                    Teams[] myTeams = myTeamManager.getTeams();
                     displayTeams(myTeams, fileLength);
-
                 }
-                else if(inputLine.equals("h")|| inputLine.equals("help"))
+               // else if() comps
+                else if (inputLine.equals("h") || inputLine.equals("help"))
                 {
                     help(); // calls the help method
                 }
-                else if(inputLine.equals("q") || inputLine.equals("quit"))
+                else if (inputLine.equals("q") || inputLine.equals("quit"))
                 {
                     System.out.println("Ending Program.");
                     System.exit(0);
@@ -144,7 +145,7 @@ public class Main
         }
         // Catches input that the program wouldn't understand normally, just in case it can't handle something
         // though the if structure should handle most of this
-        catch(IOException ioe)
+        catch (IOException ioe)
         {
             System.out.println("Input error");
             System.out.println("Ending Program.");

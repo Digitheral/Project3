@@ -54,8 +54,8 @@ public class TeamManager extends Teams
             {
                myTeams[i].olympian1.isOnATeam = true;
                myTeams[i].olympian2.isOnATeam = true;
-               int wins = rand.nextInt(50) + 1; // random number for wins
-               int losses = rand.nextInt(50) + 1; // random number for losses
+               int wins = 0;
+               int losses = 0;
                myTeams[i].wins = wins;
                myTeams[i].losses = losses;
                i++;
@@ -66,8 +66,8 @@ public class TeamManager extends Teams
             {
                 myTeams[i].olympian1.isOnATeam = true;
                 myTeams[i].olympian2.isOnATeam = true;
-                int wins = rand.nextInt(50) + 1; // random number for wins
-                int losses = rand.nextInt(50) + 1; // random number for losses
+                int wins = 0;
+                int losses = 0;
                 myTeams[i].wins = wins;
                 myTeams[i].losses = losses;
                 i++;

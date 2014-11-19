@@ -1,15 +1,19 @@
 package com.company;
 
 import java.io.*;
+import java.util.ArrayList;
 
 // Base class that is called from Main for Olympians
 public class OlympianManager extends Olympian
 {
     // Default size for olympian array
     protected Olympian[] myOlympian = new Olympian[100];
-
     public OlympianManager(int fileLength)
     {
+        if(fileLength > 100)
+        {
+            myOlympian = new Olympian[fileLength];
+        }
         for(int i=0;i<fileLength;i++)
         {
             myOlympian[i] = new Olympian();
@@ -20,11 +24,11 @@ public class OlympianManager extends Olympian
         }
     }
     // This Setter now reads from the file
-    public void setOlympians(int fileLength) throws InvalidFormatException, NullPointerException, IOException
+    public void setOlympians(int fileLength, String args) throws InvalidFormatException, NullPointerException, IOException
     {
         try
         {
-            BufferedReader input = new BufferedReader(new FileReader("C:\\Olympians.lgoo"));
+            BufferedReader input = new BufferedReader(new FileReader(args));
 
             try
             {
