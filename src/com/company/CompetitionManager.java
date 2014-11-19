@@ -5,7 +5,8 @@ package com.company;
  */
 public class CompetitionManager extends Teams
 {
-    Competition myCompetition = new Competition();
+    Competition myCompetition = new Competition(); // for Linked list
+    ICompetition iCompetition = new Competition(); // for ICompetition Array
     Competition head; // Head of linked list
     Competition tail; // Tail of linked list
 
@@ -17,6 +18,7 @@ public class CompetitionManager extends Teams
     {
         // Adding to end of linked list
        myCompetition = new Competition();
+
        myCompetition.event = event;
        myCompetition.team1 = team1;
        myCompetition.team2 = team2;
@@ -35,7 +37,31 @@ public class CompetitionManager extends Teams
     public ICompetition[] getCompetitions()
     {
        // will getCompetitions to show in the c command
-      return null;
+        if(head == null)
+        {
+            return null;
+        }
+        // Check first element for match of data
+        if(head.event == myCompetition.event && head.team1 == myCompetition.team1 && head.team2 == myCompetition.team2)
+        {
+            iCompetition = head;
+            return iCompetition[0];
+        }
+        // Iterating through linked list
+        int i = 0;
+        while(head.nextComp != null)
+        {
+            myCompetition = myCompetition.nextComp;
+            // If we found the right competition we return it back to EndCompetition
+            if(head.event == myCompetition.event && head.team1 == myCompetition.team1 && head.team2 == myCompetition.team2)
+            {
+                System.out.println("this exists in list");
+                iCompetition[i] = myCompetition;
+            }
+            i++;
+
+        }
+        return null;
     }
     public void EndCompetition(Competition competition, Teams winningTeam)
     {

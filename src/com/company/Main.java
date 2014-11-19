@@ -104,7 +104,7 @@ public class Main
             Teams[] myTeams = myTeamManager.getTeams();
 
             CompetitionManager myCompManager = new CompetitionManager();
-            Competition[] myComps = myCompManager.getCompetitions();
+            Competition myComps = myCompManager.getCompetitions();
 
             while (consoleInput != null)
             {
@@ -161,7 +161,7 @@ public class Main
                     System.out.println("Which team won the competition?");
                     inputLine = consoleInput.readLine();
                     int y = Integer.parseInt(inputLine);
-                    myCompManager.EndCompetition(myComps[x], myTeams[y]);
+                    myCompManager.EndCompetition(myComps, myTeams[y]);
                 }
                 else if (inputLine.equals("h") || inputLine.equals("help"))
                 {
