@@ -3,7 +3,7 @@ package com.company;
 /**
  * Created by Art on 11/19/2014.
  */
-public class CompetitionManager extends Teams
+public class CompetitionManager
 {
     Competition myCompetition = new Competition(); // for Linked list
     ICompetition[] iCompetition; // for ICompetition Array
@@ -13,7 +13,8 @@ public class CompetitionManager extends Teams
 
     CompetitionManager()
     {
-        // this will begin the linked list with a null head and tail
+        this.head = null;
+        this.tail = null;
     }
     public void StartCompetition(Event event, Teams team1, Teams team2)
     {
@@ -53,6 +54,7 @@ public class CompetitionManager extends Teams
        {
            tail.nextComp = myCompetition;
            tail = myCompetition;
+           tail.prevComp = myCompetition.prevComp;
        }
        size++;
        System.out.println("Competition created, please view them using 'c' at the main menu");
@@ -84,7 +86,7 @@ public class CompetitionManager extends Teams
             i++;
 
         }
-        return null;
+        return iCompetition;
     }
     public void EndCompetition(ICompetition competition, Teams winningTeam)
     {

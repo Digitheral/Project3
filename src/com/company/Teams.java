@@ -3,7 +3,7 @@ package com.company;
 /**
  * Created by Art on 10/26/2014.
  */
-public class Teams extends Olympian
+public class Teams
 {
     // Team members
     protected Olympian olympian1;

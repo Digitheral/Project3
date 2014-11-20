@@ -5,7 +5,7 @@ import java.util.Random; // to assign teams
 /**
  * Created by Art on 10/26/2014.
  */
-public class TeamManager extends Teams
+public class TeamManager
 {
     // Default size for team array
     private Teams[] myTeams = new Teams[100];
@@ -22,7 +22,7 @@ public class TeamManager extends Teams
             myTeams[i].olympian2 = myOlympians[i];
             myTeams[i].wins = 0;
             myTeams[i].losses = 0;
-            if(myOlympians[i].sex == Sex.MALE)
+            if(myOlympians[i].sex == Olympian.Sex.MALE)
             {
                 male++;
             }

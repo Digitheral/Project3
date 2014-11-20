@@ -6,13 +6,8 @@ package com.company;
 public interface ICompetition
 {
     // This is the interface that Competition is implementing
-    Event event = new Event() {
-        @Override
-        public String getExtraInfo() {
-            return null;
-        }
-    };
-    Teams team1 = new Teams();
-    Teams team2 = new Teams();
-   // public ICompetition[] listToArray(Competition myComps);
+    Event event = null;
+    Teams team1 = null;
+    Teams team2 = null;
+
 }

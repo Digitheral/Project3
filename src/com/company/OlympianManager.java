@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 // Base class that is called from Main for Olympians
-public class OlympianManager extends Olympian
+public class OlympianManager
 {
     // Default size for olympian array
     protected Olympian[] myOlympian = new Olympian[100];
@@ -18,7 +18,7 @@ public class OlympianManager extends Olympian
         {
             myOlympian[i] = new Olympian();
             this.myOlympian[i].name = "Default";
-            this.myOlympian[i].sex = Sex.MALE;
+            this.myOlympian[i].sex = Olympian.Sex.MALE;
             this.myOlympian[i].age = "0";
 
         }

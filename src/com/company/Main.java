@@ -1,10 +1,11 @@
 /******************************************
- Program: Project III - Lawn Olympic Games
+ Program: Project IV - Lawn Olympic Games
  Arthur Pearson
  CMPT 220 - Fall 2014 Software Development
  The file is read from the root directory of the C:/ make sure you either place your .lgoo file there or change the path.
  Every exception in this program will invoke a system.exit() command and notify of the issue and notify that the
  program is ending
+ The linked list seems to be working but I can't get the interface working.
  ******************************************/
 package com.company;
 
@@ -104,10 +105,10 @@ public class Main
             Teams[] myTeams = myTeamManager.getTeams();
 
             CompetitionManager myCompManager = new CompetitionManager();
-            ICompetition[] myComps = myCompManager.getCompetitions();
 
             while (consoleInput != null)
             {
+                ICompetition[] myComps = myCompManager.getCompetitions();
                 System.out.println("\nPlease input an argument: ");
                 inputLine = consoleInput.readLine();
                 if (inputLine.equals("e") || inputLine.equals("events"))
